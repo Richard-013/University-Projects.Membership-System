@@ -7,7 +7,7 @@ package membership.system;
 
 /**
  *
- * @author Richard
+ * @author hortonr6
  */
 public class MembershipSystem {
 
