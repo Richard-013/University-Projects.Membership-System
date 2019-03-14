@@ -15,7 +15,8 @@ public class MembershipSystem {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Login mainApp = new Login();
+        mainApp.setVisible(true);
     }
     
 }
