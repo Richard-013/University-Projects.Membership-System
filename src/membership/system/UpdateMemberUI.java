@@ -674,6 +674,47 @@ public class UpdateMemberUI extends javax.swing.JFrame {
             }
         });
     }
+    
+    private void openFindIDUI()
+    {
+	// TODO - implement UpdateMember_UI.openFindIDUI
+    }
+
+    private void retrieveDetails()
+    {
+		// TODO - implement UpdateMember_UI.retrieveDetails
+    }
+
+    private void submitUpdate()
+    {
+		// TODO - implement UpdateMember_UI.submitUpdate
+    }
+
+    private void updateCheck()
+    {
+		// TODO - implement UpdateMember_UI.updateCheck
+    }
+
+    private void cancelUpdate()
+    {
+	// TODO - implement UpdateMember_UI.cancelUpdate
+    }
+
+    private void resetDetails()
+    {
+	// TODO - implement UpdateMember_UI.resetDetails
+    }
+
+    private void deleteMembership()
+    {
+	// TODO - implement UpdateMember_UI.deleteMembership
+    }
+
+    private void backToMainMenu()
+    {
+	// TODO - implement UpdateMember_UI.backToMainMenu
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

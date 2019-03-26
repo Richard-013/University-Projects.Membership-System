@@ -168,6 +168,21 @@ public class MainMenuUI extends javax.swing.JFrame {
             }
         });
     }
+    
+    public void openNewMemberUI()
+    {
+	// TODO - implement MainMenu_UI.openNewMemberUI
+    }
+
+    public void openUpdateMemberUI()
+    {
+	// TODO - implement MainMenu_UI.openUpdateMemberUI
+    }
+
+    private void quitApplication()
+    {
+	// TODO - implement MainMenu_UI.quitApplication
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

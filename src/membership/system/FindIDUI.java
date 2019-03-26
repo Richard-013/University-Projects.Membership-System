@@ -187,6 +187,21 @@ public class FindIDUI extends javax.swing.JFrame {
             }
         });
     }
+    
+    public void getMemberID()
+    {
+	// TODO - implement FindID_UI.getMemberID
+    }
+
+    private void searchByName()
+    {
+	// TODO - implement FindID_UI.searchByName
+    }
+
+    private void cancelSearch()
+    {
+	// TODO - implement FindID_UI.cancelSearch
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

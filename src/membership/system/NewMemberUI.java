@@ -582,6 +582,21 @@ public class NewMemberUI extends javax.swing.JFrame {
             }
         });
     }
+    
+    private void backToMainMenu()
+    {
+	// TODO - implement NewMember_UI.backToMainMenu
+    }
+
+    private void submitNewMember()
+    {
+	// TODO - implement NewMember_UI.submitNewMember
+    }
+
+    private void cancelNewMember()
+    {
+	// TODO - implement NewMember_UI.cancelNewMember
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton2;

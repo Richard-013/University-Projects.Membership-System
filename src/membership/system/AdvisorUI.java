@@ -16,7 +16,8 @@ public class AdvisorUI {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         LoginUI mainApp = new LoginUI();
         mainApp.setVisible(true);
         
@@ -59,6 +60,11 @@ public class AdvisorUI {
             System.out.println("SQLException error");
             System.out.println(ex.getMessage());
         }
+    }
+    
+    public void startUI()
+    {
+	// TODO - implement Advisor_UI.startUI
     }
 }
 

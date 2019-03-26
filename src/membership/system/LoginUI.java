@@ -164,6 +164,11 @@ public class LoginUI extends javax.swing.JFrame {
             }
         });
     }
+    
+    public void submitLoginDetails()
+    {
+	// TODO - implement LogIn_UI.submitLoginDetails
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
