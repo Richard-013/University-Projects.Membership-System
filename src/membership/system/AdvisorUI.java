@@ -11,7 +11,7 @@ import java.sql.*;
  *
  * @author hortonr6
  */
-public class MembershipSystem {
+public class AdvisorUI {
 
     /**
      * @param args the command line arguments
