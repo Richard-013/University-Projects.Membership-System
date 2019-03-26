@@ -17,7 +17,7 @@ public class AdvisorUI {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Login mainApp = new Login();
+        LoginUI mainApp = new LoginUI();
         mainApp.setVisible(true);
         
         // DB Connection
