@@ -9,12 +9,13 @@ package membership.system;
  *
  * @author Richard
  */
-public class MainMenuUI extends javax.swing.JFrame {
-
+public class MainMenuUI extends javax.swing.JFrame
+{
     /**
      * Creates new form MainMenu
      */
-    public MainMenuUI() {
+    public MainMenuUI()
+    {
         initComponents();
     }
 
@@ -119,24 +120,26 @@ public class MainMenuUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    // Logout button
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        dispose();
+        quitApplication();
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    // View/Edit Membership button
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        UpdateMemberUI update = new UpdateMemberUI();
-        update.setVisible(true);
+        openUpdateMemberUI();
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    // Register New Member button
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        NewMemberUI register = new NewMemberUI();
-        register.setVisible(true);
+        openNewMemberUI();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[])
+    {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -169,19 +172,24 @@ public class MainMenuUI extends javax.swing.JFrame {
         });
     }
     
+    // Opens a new window to add a new member
     public void openNewMemberUI()
     {
-	// TODO - implement MainMenu_UI.openNewMemberUI
+	NewMemberUI register = new NewMemberUI();
+        register.setVisible(true);
     }
 
+    // Opens a new window to update a member's details
     public void openUpdateMemberUI()
     {
-	// TODO - implement MainMenu_UI.openUpdateMemberUI
+	UpdateMemberUI update = new UpdateMemberUI();
+        update.setVisible(true);
     }
 
+    // Quits the application
     private void quitApplication()
     {
-	// TODO - implement MainMenu_UI.quitApplication
+	System.exit(0);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

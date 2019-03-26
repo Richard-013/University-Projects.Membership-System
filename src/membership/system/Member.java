@@ -19,6 +19,7 @@ public class Member
 	private int expiryMonth;
 	private int expiryYear;
 	private int security;
+        public boolean discount;
 
 	/**
 	 * 

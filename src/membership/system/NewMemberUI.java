@@ -9,12 +9,13 @@ package membership.system;
  *
  * @author hortonr6
  */
-public class NewMemberUI extends javax.swing.JFrame {
-
+public class NewMemberUI extends javax.swing.JFrame
+{
     /**
      * Creates new form NewMember
      */
-    public NewMemberUI() {
+    public NewMemberUI()
+    {
         initComponents();
     }
 
@@ -464,15 +465,15 @@ public class NewMemberUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        dispose();
+        backToMainMenu();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
+        submitNewMember();
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        dispose();
+        cancelNewMember();
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -550,7 +551,8 @@ public class NewMemberUI extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[])
+    {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -585,7 +587,7 @@ public class NewMemberUI extends javax.swing.JFrame {
     
     private void backToMainMenu()
     {
-	// TODO - implement NewMember_UI.backToMainMenu
+	dispose();
     }
 
     private void submitNewMember()
@@ -595,7 +597,8 @@ public class NewMemberUI extends javax.swing.JFrame {
 
     private void cancelNewMember()
     {
-	// TODO - implement NewMember_UI.cancelNewMember
+        // Clear form data
+	dispose();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

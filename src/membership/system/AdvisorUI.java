@@ -13,11 +13,19 @@ import java.sql.*;
  */
 public class AdvisorUI {
 
+    public static UpdateMemberController updateCon;
+    public static NewMemberController newMemberCon;
+    public static LogInController loginCon;
+    public static FindIDController findIDCon;
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args)
     {
+        updateCon = new UpdateMemberController();
+        newMemberCon = new NewMemberController();
+        loginCon = new LogInController();
+        findIDCon = new FindIDController();
         LoginUI mainApp = new LoginUI();
         mainApp.setVisible(true);
         

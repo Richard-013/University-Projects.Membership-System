@@ -11,10 +11,15 @@ package membership.system;
  */
 public class LoginUI extends javax.swing.JFrame {
 
+    private String username;
+    private String password;
+    private boolean valid = false;
+    
     /**
      * Creates new form Login
      */
-    public LoginUI() {
+    public LoginUI()
+    {
         initComponents();
     }
 
@@ -124,15 +129,14 @@ public class LoginUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        dispose(); // Removes login window
-        MainMenuUI menu = new MainMenuUI(); // Creates an instance of the main menu
-        menu.setVisible(true); // Makes main menu visible
+        submitLoginDetails();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[])
+    {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -167,7 +171,12 @@ public class LoginUI extends javax.swing.JFrame {
     
     public void submitLoginDetails()
     {
-	// TODO - implement LogIn_UI.submitLoginDetails
+        if(valid)
+        {
+            dispose(); // Removes login window
+            MainMenuUI menu = new MainMenuUI(); // Creates an instance of the main menu
+            menu.setVisible(true); // Makes main menu visible
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -2,7 +2,7 @@ package membership.system;
 
 public class UpdateMemberController
 {
-	private UpdateMemberController()
+	public UpdateMemberController()
         {
 		// TODO - implement UpdateMemberController.UpdateMemberController
 	}

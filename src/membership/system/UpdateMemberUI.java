@@ -539,7 +539,7 @@ public class UpdateMemberUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        dispose();
+        submitUpdate();
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
@@ -547,15 +547,15 @@ public class UpdateMemberUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField9ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
+        deleteMembership();
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        dispose();
+        backToMainMenu();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
+        resetDetails();
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -631,12 +631,11 @@ public class UpdateMemberUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox7ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        FindIDUI idSearch = new FindIDUI();
-        idSearch.setVisible(true);
+        openFindID_UI();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        dispose();
+        cancelUpdate();
     }//GEN-LAST:event_jButton8ActionPerformed
 
     /**
@@ -675,29 +674,38 @@ public class UpdateMemberUI extends javax.swing.JFrame {
         });
     }
     
-    private void openFindIDUI()
+    private void openFindID_UI()
     {
-	// TODO - implement UpdateMember_UI.openFindIDUI
+	FindID_UI idSearch = new FindID_UI();
+        idSearch.setVisible(true);
     }
 
     private void retrieveDetails()
     {
-		// TODO - implement UpdateMember_UI.retrieveDetails
+	// TODO - implement UpdateMember_UI.retrieveDetails
     }
 
     private void submitUpdate()
     {
-		// TODO - implement UpdateMember_UI.submitUpdate
+	if(updateCheck())
+        {
+            // Update values
+        }
+        else
+        {
+            // don't update
+        }
     }
 
-    private void updateCheck()
+    private boolean updateCheck()
     {
-		// TODO - implement UpdateMember_UI.updateCheck
+	return true;
     }
 
     private void cancelUpdate()
     {
-	// TODO - implement UpdateMember_UI.cancelUpdate
+        // Clear form data
+	dispose();
     }
 
     private void resetDetails()
@@ -712,7 +720,7 @@ public class UpdateMemberUI extends javax.swing.JFrame {
 
     private void backToMainMenu()
     {
-	// TODO - implement UpdateMember_UI.backToMainMenu
+	dispose();
     }
 
 

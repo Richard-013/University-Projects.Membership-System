@@ -2,7 +2,7 @@ package membership.system;
 
 public class LogInController
 {
-	private LogInController()
+	public LogInController()
         {
 		// TODO - implement LogInController.LogInController
 	}

@@ -2,7 +2,7 @@ package membership.system;
 
 public class NewMemberController
 {
-	private NewMemberController()
+	public NewMemberController()
         {
 		// TODO - implement NewMemberController.NewMemberController
 	}
