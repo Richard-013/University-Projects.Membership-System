@@ -11,11 +11,15 @@ package membership.system;
  */
 public class UpdateMemberUI extends javax.swing.JFrame {
 
+    private UpdateMemberController updateCon;
+    public static String memberID;
     /**
      * Creates new form UpdateMember
      */
-    public UpdateMemberUI() {
+    public UpdateMemberUI()
+    {
         initComponents();
+        updateCon = new UpdateMemberController();
     }
 
     /**
@@ -674,10 +678,14 @@ public class UpdateMemberUI extends javax.swing.JFrame {
         });
     }
     
+    public static void setMemberIDText(String memberID)
+    {
+        memberIDEntry.setText(memberID);
+    }
+    
     private void openFindID_UI()
     {
-	FindID_UI idSearch = new FindID_UI();
-        idSearch.setVisible(true);
+        AdvisorUI.findID.setVisible(true);
     }
 
     private void retrieveDetails()
@@ -705,7 +713,7 @@ public class UpdateMemberUI extends javax.swing.JFrame {
     private void cancelUpdate()
     {
         // Clear form data
-	dispose();
+	AdvisorUI.updateMember.setVisible(false);
     }
 
     private void resetDetails()
@@ -720,7 +728,7 @@ public class UpdateMemberUI extends javax.swing.JFrame {
 
     private void backToMainMenu()
     {
-	dispose();
+	AdvisorUI.updateMember.setVisible(false);
     }
 
 
@@ -764,7 +772,7 @@ public class UpdateMemberUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField lastNameEntry;
     private javax.swing.JLabel lastNameLabel;
-    private javax.swing.JTextField memberIDEntry;
+    private static javax.swing.JTextField memberIDEntry;
     private javax.swing.JLabel memberIDLabel;
     private javax.swing.JComboBox<String> membershipCombo;
     private javax.swing.JLabel membershipLabel;

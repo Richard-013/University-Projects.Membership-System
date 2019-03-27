@@ -175,15 +175,13 @@ public class MainMenuUI extends javax.swing.JFrame
     // Opens a new window to add a new member
     public void openNewMemberUI()
     {
-	NewMemberUI register = new NewMemberUI();
-        register.setVisible(true);
+        AdvisorUI.newMember.setVisible(true);
     }
 
     // Opens a new window to update a member's details
     public void openUpdateMemberUI()
     {
-	UpdateMemberUI update = new UpdateMemberUI();
-        update.setVisible(true);
+        AdvisorUI.updateMember.setVisible(true);
     }
 
     // Quits the application

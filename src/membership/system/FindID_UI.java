@@ -5,17 +5,23 @@
  */
 package membership.system;
 
+import java.sql.*;
+import java.util.Vector;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author hortonr6
  */
 public class FindID_UI extends javax.swing.JFrame {
 
+    private FindIDController findIDCon;
     /**
      * Creates new form FindID
      */
-    public FindID_UI() {
+    public FindID_UI()
+    {
         initComponents();
+        findIDCon = new FindIDController();
     }
 
     /**
@@ -40,20 +46,17 @@ public class FindID_UI extends javax.swing.JFrame {
 
         memberTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "First Name", "Last Name", "Address Line 1", "Post Code"
+                "MemberID", "First Name", "Last Name", "Address Line 1", "Post Code"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, true, false
+                false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -210,25 +213,27 @@ public class FindID_UI extends javax.swing.JFrame {
     
     public void getMemberID()
     {
-	// TODO - implement FindID_UI.getMemberID
+        UpdateMemberUI.memberID = (String) memberTable.getValueAt(memberTable.getSelectedRow(), 0);
+        UpdateMemberUI.setMemberIDText(UpdateMemberUI.memberID);
+        AdvisorUI.findID.setVisible(false);
     }
 
     private void searchByName()
     {
-	// TODO - implement FindID_UI.searchByName
+	findIDCon.searchByName(firstNameEntry.getText());
     }
 
     private void cancelSearch()
     {
-	dispose();
+	AdvisorUI.findID.setVisible(false);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelButton;
-    private javax.swing.JTextField firstNameEntry;
+    public javax.swing.JTextField firstNameEntry;
     private javax.swing.JLabel firstNameLabel;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable memberTable;
+    public javax.swing.JTable memberTable;
     private javax.swing.JButton okButton;
     private javax.swing.JButton searchButton;
     private javax.swing.JLabel titleLabel;

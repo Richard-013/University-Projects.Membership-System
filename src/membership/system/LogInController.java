@@ -30,7 +30,7 @@ public class LogInController
 	 * @param username
 	 * @param password
 	 */
-	public void logIn(String username, String password)
+	public int logIn(String username, String password)
         {
 		// TODO - implement LogInController.logIn
 	}

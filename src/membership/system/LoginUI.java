@@ -14,6 +14,7 @@ public class LoginUI extends javax.swing.JFrame {
     private String username;
     private String password;
     private boolean valid = false;
+    private LogInController logCon;
     
     /**
      * Creates new form Login
@@ -21,6 +22,7 @@ public class LoginUI extends javax.swing.JFrame {
     public LoginUI()
     {
         initComponents();
+        logCon = new LogInController();
     }
 
     /**
@@ -171,11 +173,25 @@ public class LoginUI extends javax.swing.JFrame {
     
     public void submitLoginDetails()
     {
+        switch(logCon.logIn(username, password))
+        {
+            case 0: // Username and password are correct
+                valid = true;
+                break;
+            case 1: // Username is incorrect
+                valid = false;
+                break;
+            case 2: // Password is incorrect
+                valid = false;
+                break;
+            default:
+                valid = false;
+        }
+        
         if(valid)
         {
             dispose(); // Removes login window
-            MainMenuUI menu = new MainMenuUI(); // Creates an instance of the main menu
-            menu.setVisible(true); // Makes main menu visible
+            AdvisorUI.mainMenu.setVisible(true); // Makes main menu visible
         }
     }
 

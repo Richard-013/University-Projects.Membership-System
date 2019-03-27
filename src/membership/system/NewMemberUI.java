@@ -11,12 +11,14 @@ package membership.system;
  */
 public class NewMemberUI extends javax.swing.JFrame
 {
+    private NewMemberController newCon;
     /**
      * Creates new form NewMember
      */
     public NewMemberUI()
     {
         initComponents();
+        newCon = new NewMemberController();
     }
 
     /**
@@ -587,7 +589,7 @@ public class NewMemberUI extends javax.swing.JFrame
     
     private void backToMainMenu()
     {
-	dispose();
+	AdvisorUI.newMember.setVisible(false);
     }
 
     private void submitNewMember()
@@ -598,7 +600,7 @@ public class NewMemberUI extends javax.swing.JFrame
     private void cancelNewMember()
     {
         // Clear form data
-	dispose();
+	AdvisorUI.newMember.setVisible(false);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

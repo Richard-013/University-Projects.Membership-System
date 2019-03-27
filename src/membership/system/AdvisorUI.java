@@ -13,21 +13,22 @@ import java.sql.*;
  */
 public class AdvisorUI {
 
-    public static UpdateMemberController updateCon;
-    public static NewMemberController newMemberCon;
-    public static LogInController loginCon;
-    public static FindIDController findIDCon;
+    public static FindID_UI findID;
+    public static LoginUI login;
+    public static MainMenuUI mainMenu;
+    public static NewMemberUI newMember;
+    public static UpdateMemberUI updateMember;
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args)
     {
-        updateCon = new UpdateMemberController();
-        newMemberCon = new NewMemberController();
-        loginCon = new LogInController();
-        findIDCon = new FindIDController();
-        LoginUI mainApp = new LoginUI();
-        mainApp.setVisible(true);
+        findID = new FindID_UI();
+        login = new LoginUI();
+        mainMenu = new MainMenuUI();
+        newMember = new NewMemberUI();
+        updateMember = new UpdateMemberUI();
+        login.setVisible(true);
         
         // DB Connection
         String connectionURL = "jdbc:derby://localhost:1527/MembershipDB";
