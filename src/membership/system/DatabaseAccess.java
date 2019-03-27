@@ -1,9 +1,13 @@
 package membership.system;
 
+import java.sql.*;
+
 public class DatabaseAccess
 {
-	public void makeConnection()
-        {
-		// TODO - implement DatabaseAccess.readConnection
-	}
+    private static Connection conn;
+    
+    public static Connection makeConnection()
+    {
+        return conn;
+    }
 }

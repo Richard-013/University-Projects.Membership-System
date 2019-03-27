@@ -4,7 +4,7 @@ public class LogInController
 {
 	public LogInController()
         {
-		// TODO - implement LogInController.LogInController
+            // TODO - implement LogInController.LogInController
 	}
 
 	/**
@@ -13,7 +13,7 @@ public class LogInController
 	 */
 	private void checkUsername(String username)
         {
-		// TODO - implement LogInController.checkUsername
+            // TODO - implement LogInController.checkUsername
 	}
 
 	/**
@@ -22,7 +22,7 @@ public class LogInController
 	 */
 	private void checkPassword(String password)
         {
-		// TODO - implement LogInController.checkPassword
+            // TODO - implement LogInController.checkPassword
 	}
 
 	/**
@@ -32,6 +32,6 @@ public class LogInController
 	 */
 	public int logIn(String username, String password)
         {
-		// TODO - implement LogInController.logIn
+            return 0;
 	}
 }

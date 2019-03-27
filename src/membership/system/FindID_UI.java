@@ -5,9 +5,6 @@
  */
 package membership.system;
 
-import java.sql.*;
-import java.util.Vector;
-import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author hortonr6
