@@ -28,17 +28,17 @@ public class FindID_UI extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
+        memberTable = new javax.swing.JTable();
+        okButton = new javax.swing.JButton();
+        cancelButton = new javax.swing.JButton();
+        titleLabel = new javax.swing.JLabel();
+        firstNameLabel = new javax.swing.JLabel();
+        firstNameEntry = new javax.swing.JTextField();
+        searchButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        memberTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -64,41 +64,41 @@ public class FindID_UI extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.setColumnSelectionAllowed(true);
-        jTable1.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(jTable1);
-        jTable1.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        memberTable.setColumnSelectionAllowed(true);
+        memberTable.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(memberTable);
+        memberTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
-        jButton1.setText("Ok");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        okButton.setText("Ok");
+        okButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                okButtonActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Cancel");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        cancelButton.setText("Cancel");
+        cancelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                cancelButtonActionPerformed(evt);
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel1.setText("Find Membership ID");
+        titleLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        titleLabel.setText("Find Membership ID");
 
-        jLabel2.setText("First Name");
+        firstNameLabel.setText("First Name");
 
-        jTextField9.setText("Enter name");
-        jTextField9.addActionListener(new java.awt.event.ActionListener() {
+        firstNameEntry.setText("Enter name");
+        firstNameEntry.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField9ActionPerformed(evt);
+                firstNameEntryActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Go");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        searchButton.setText("Search");
+        searchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                searchButtonActionPerformed(evt);
             }
         });
 
@@ -115,60 +115,60 @@ public class FindID_UI extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(167, 167, 167)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(okButton, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(174, 174, 174)
-                                .addComponent(jLabel1)))
+                                .addComponent(titleLabel)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(124, 124, 124)
-                .addComponent(jLabel2)
+                .addComponent(firstNameLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(firstNameEntry, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton3)
+                .addComponent(searchButton)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addComponent(titleLabel)
                 .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3))
+                    .addComponent(firstNameLabel)
+                    .addComponent(firstNameEntry, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchButton))
                 .addGap(19, 19, 19)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(okButton)
+                    .addComponent(cancelButton))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
+    private void firstNameEntryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstNameEntryActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField9ActionPerformed
+    }//GEN-LAST:event_firstNameEntryActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
         cancelSearch();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_cancelButtonActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
         getMemberID();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_okButtonActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
         searchByName();
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_searchButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -224,13 +224,13 @@ public class FindID_UI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton cancelButton;
+    private javax.swing.JTextField firstNameEntry;
+    private javax.swing.JLabel firstNameLabel;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JTable memberTable;
+    private javax.swing.JButton okButton;
+    private javax.swing.JButton searchButton;
+    private javax.swing.JLabel titleLabel;
     // End of variables declaration//GEN-END:variables
 }

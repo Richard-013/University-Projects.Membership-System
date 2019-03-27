@@ -28,51 +28,51 @@ public class MainMenuUI extends javax.swing.JFrame
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
+        newMemberButton = new javax.swing.JButton();
+        editMemberButton = new javax.swing.JButton();
+        titleLabel = new javax.swing.JLabel();
+        timeAndDateLabel = new javax.swing.JLabel();
+        logoutButton = new javax.swing.JButton();
+        usernameLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(600, 400));
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton1.setText("Register New Member");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        newMemberButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        newMemberButton.setText("Register New Member");
+        newMemberButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                newMemberButtonActionPerformed(evt);
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton2.setText("View/Edit Membership");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        editMemberButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        editMemberButton.setText("View/Edit Membership");
+        editMemberButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                editMemberButtonActionPerformed(evt);
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel1.setText("Sports and Leisure Village");
+        titleLabel.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        titleLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        titleLabel.setText("Sports and Leisure Village");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel2.setText("Time and Date");
+        timeAndDateLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        timeAndDateLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        timeAndDateLabel.setText("Time and Date");
 
-        jButton4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jButton4.setText("Logout");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        logoutButton.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        logoutButton.setText("Logout");
+        logoutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                logoutButtonActionPerformed(evt);
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel3.setText("Username");
+        usernameLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        usernameLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        usernameLabel.setText("Username");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -82,38 +82,38 @@ public class MainMenuUI extends javax.swing.JFrame
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(titleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 151, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(usernameLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(timeAndDateLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton4)))
+                        .addComponent(logoutButton)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(44, 44, 44)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(newMemberButton, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(editMemberButton, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(titleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel2)
+                        .addComponent(timeAndDateLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel3)))
+                        .addComponent(usernameLabel)))
                 .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 233, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(newMemberButton, javax.swing.GroupLayout.DEFAULT_SIZE, 233, Short.MAX_VALUE)
+                    .addComponent(editMemberButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(28, 28, 28)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(logoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -121,19 +121,19 @@ public class MainMenuUI extends javax.swing.JFrame
     }// </editor-fold>//GEN-END:initComponents
 
     // Logout button
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
         quitApplication();
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_logoutButtonActionPerformed
 
     // View/Edit Membership button
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void editMemberButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editMemberButtonActionPerformed
         openUpdateMemberUI();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_editMemberButtonActionPerformed
 
     // Register New Member button
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void newMemberButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newMemberButtonActionPerformed
         openNewMemberUI();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_newMemberButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -193,11 +193,11 @@ public class MainMenuUI extends javax.swing.JFrame
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JButton editMemberButton;
+    private javax.swing.JButton logoutButton;
+    private javax.swing.JButton newMemberButton;
+    private javax.swing.JLabel timeAndDateLabel;
+    private javax.swing.JLabel titleLabel;
+    private javax.swing.JLabel usernameLabel;
     // End of variables declaration//GEN-END:variables
 }
