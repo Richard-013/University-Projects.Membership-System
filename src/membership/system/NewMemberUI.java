@@ -589,7 +589,7 @@ public class NewMemberUI extends javax.swing.JFrame
     
     private void backToMainMenu()
     {
-	AdvisorUI.newMember.setVisible(false);
+	dispose();
     }
 
     private void submitNewMember()
@@ -600,7 +600,7 @@ public class NewMemberUI extends javax.swing.JFrame
     private void cancelNewMember()
     {
         // Clear form data
-	AdvisorUI.newMember.setVisible(false);
+	dispose();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

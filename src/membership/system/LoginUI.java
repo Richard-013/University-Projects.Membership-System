@@ -191,7 +191,8 @@ public class LoginUI extends javax.swing.JFrame {
         if(valid)
         {
             dispose(); // Removes login window
-            AdvisorUI.mainMenu.setVisible(true); // Makes main menu visible
+            AdvisorUI.mainMenu = new MainMenuUI();
+            AdvisorUI.mainMenu.setVisible(true);// Makes main menu visible
         }
     }
 

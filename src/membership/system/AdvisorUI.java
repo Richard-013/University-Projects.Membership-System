@@ -18,16 +18,14 @@ public class AdvisorUI {
     public static MainMenuUI mainMenu;
     public static NewMemberUI newMember;
     public static UpdateMemberUI updateMember;
+    public static Advisor currentAdvisor;
+    public static Member currentMember;
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args)
     {
-        findID = new FindID_UI();
         login = new LoginUI();
-        mainMenu = new MainMenuUI();
-        newMember = new NewMemberUI();
-        updateMember = new UpdateMemberUI();
         login.setVisible(true);
         
         // DB Connection

@@ -210,9 +210,12 @@ public class FindID_UI extends javax.swing.JFrame {
     
     public void getMemberID()
     {
-        UpdateMemberUI.memberID = (String) memberTable.getValueAt(memberTable.getSelectedRow(), 0);
-        UpdateMemberUI.setMemberIDText(UpdateMemberUI.memberID);
-        AdvisorUI.findID.setVisible(false);
+        if(memberTable.getSelectedRow() != -1)
+        {
+            UpdateMemberUI.memberID = (String) memberTable.getValueAt(memberTable.getSelectedRow(), 0);
+            UpdateMemberUI.setMemberIDText(UpdateMemberUI.memberID);
+            dispose();
+        }
     }
 
     private void searchByName()

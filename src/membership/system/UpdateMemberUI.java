@@ -685,6 +685,7 @@ public class UpdateMemberUI extends javax.swing.JFrame {
     
     private void openFindID_UI()
     {
+        AdvisorUI.findID = new FindID_UI();
         AdvisorUI.findID.setVisible(true);
     }
 
@@ -713,7 +714,7 @@ public class UpdateMemberUI extends javax.swing.JFrame {
     private void cancelUpdate()
     {
         // Clear form data
-	AdvisorUI.updateMember.setVisible(false);
+	dispose();
     }
 
     private void resetDetails()
@@ -728,7 +729,7 @@ public class UpdateMemberUI extends javax.swing.JFrame {
 
     private void backToMainMenu()
     {
-	AdvisorUI.updateMember.setVisible(false);
+	dispose();
     }
 
 
