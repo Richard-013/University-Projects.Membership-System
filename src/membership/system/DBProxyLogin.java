@@ -8,7 +8,7 @@ public class DBProxyLogin
      * 
      * @param username
      */
-    public void checkForUser(String username)
+    public static boolean checkForUser(String username, String sql)
     {
 	try
         {
@@ -18,13 +18,20 @@ public class DBProxyLogin
             if(conn != null)
             {
                 PreparedStatement ps = conn.prepareStatement(sql);
-                ps.setString(1, firstName);
+                ps.setString(1, username);
                 ResultSet rs = null;
 
                 rs = ps.executeQuery();
                 while(rs.next())
                 { 
-                    
+                    if(rs.getString("USERNAME") == username)
+                    {
+                        rs.close();
+                        ps.close();
+                        conn.close();
+                        System.out.println("Connection is closed.");
+                        return true;
+                    }
                 }
 
                 rs.close();
@@ -42,10 +49,14 @@ public class DBProxyLogin
             System.out.println("SQLException error");
             System.out.println(ex.getMessage());
         }
+        
+        return false;
     }
 
-    public void getPassword()
+    public static String getPassword(String username, String sql)
     {
+        String password = null;
+        
         try
         {
             Connection conn = DatabaseAccess.makeConnection();
@@ -54,13 +65,13 @@ public class DBProxyLogin
             if(conn != null)
             {
                 PreparedStatement ps = conn.prepareStatement(sql);
-                ps.setString(1, firstName);
+                ps.setString(1, username);
                 ResultSet rs = null;
 
                 rs = ps.executeQuery();
                 while(rs.next())
                 { 
-                    
+                    password = rs.getString("PASSWORD");
                 }
 
                 rs.close();
@@ -78,5 +89,7 @@ public class DBProxyLogin
             System.out.println("SQLException error");
             System.out.println(ex.getMessage());
         }
+        
+        return password;
     }
 }

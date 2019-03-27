@@ -4,10 +4,16 @@ public class Advisor
 {
     private String username;
     private String password;
-
-    public void getUsername()
+    
+    public Advisor(String currentUsername, String currentPassword)
     {
-            // TODO - implement Advisor.getUsername
+        setUsername(currentUsername);
+        setPassword(currentPassword);
+    }
+
+    public String getUsername()
+    {
+        return this.username;
     }
 
     /**
@@ -16,12 +22,12 @@ public class Advisor
      */
     public void setUsername(String username)
     {
-            this.username = username;
+        this.username = username;
     }
 
-    public void getPassword()
+    public String getPassword()
     {
-            // TODO - implement Advisor.getPassword
+        return this.password;
     }
 
     /**

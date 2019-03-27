@@ -23,6 +23,7 @@ public class LoginUI extends javax.swing.JFrame {
     {
         initComponents();
         logCon = new LogInController();
+        warningLabel.setText("");
     }
 
     /**
@@ -41,6 +42,7 @@ public class LoginUI extends javax.swing.JFrame {
         passwordLabel = new javax.swing.JLabel();
         usernameLabel = new javax.swing.JLabel();
         usernameEntry = new javax.swing.JTextField();
+        warningLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -98,6 +100,8 @@ public class LoginUI extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        warningLabel.setText("jLabel1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -113,7 +117,10 @@ public class LoginUI extends javax.swing.JFrame {
                         .addGap(60, 60, 60))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(logInButton, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(175, 175, 175))))
+                        .addGap(175, 175, 175))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(warningLabel)
+                        .addGap(214, 214, 214))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -124,7 +131,9 @@ public class LoginUI extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(logInButton, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(warningLabel)
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         pack();
@@ -180,12 +189,15 @@ public class LoginUI extends javax.swing.JFrame {
                 break;
             case 1: // Username is incorrect
                 valid = false;
+                warningLabel.setText("Username Incorrect");
                 break;
             case 2: // Password is incorrect
                 valid = false;
+                warningLabel.setText("Password Incorrect");
                 break;
             default:
                 valid = false;
+                warningLabel.setText("Error");
         }
         
         if(valid)
@@ -199,10 +211,11 @@ public class LoginUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton logInButton;
-    private javax.swing.JPasswordField passwordEntry;
+    public javax.swing.JPasswordField passwordEntry;
     private javax.swing.JLabel passwordLabel;
     private javax.swing.JLabel titleLabel;
-    private javax.swing.JTextField usernameEntry;
+    public javax.swing.JTextField usernameEntry;
     private javax.swing.JLabel usernameLabel;
+    private javax.swing.JLabel warningLabel;
     // End of variables declaration//GEN-END:variables
 }
