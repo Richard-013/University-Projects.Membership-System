@@ -186,6 +186,7 @@ public class LoginUI extends javax.swing.JFrame {
         {
             case 0: // Username and password are correct
                 valid = true;
+                warningLabel.setText("");
                 break;
             case 1: // Username is incorrect
                 valid = false;
