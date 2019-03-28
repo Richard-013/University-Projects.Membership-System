@@ -95,6 +95,10 @@ public class Member
     public void setMembershipType(int membershipType)
     {
         this.membershipType = membershipType;
+        if(this.membershipType == 3)
+        {
+            this.discount = true;
+        }
     }
 
     public String getDateOfBirth()
@@ -216,16 +220,4 @@ public class Member
     {
         this.security = security;
     }
-
-    public boolean isDiscount()
-    {
-        return discount;
-    }
-
-    public void setDiscount(boolean discount)
-    {
-        this.discount = discount;
-    }
-        
-        
 }

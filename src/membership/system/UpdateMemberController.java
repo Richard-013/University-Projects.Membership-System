@@ -13,7 +13,9 @@ public class UpdateMemberController
      */
     public void getDetails(int memberID)
     {
-            // TODO - implement UpdateMemberController.getDetails
+        // SELECT Statement to get all data on one member
+        String sql = "";
+        DBProxyMembership.getMemberDetails(memberID, sql);
     }
 
     /**

@@ -6,7 +6,7 @@ import javax.swing.table.DefaultTableModel;
 
 public class DBProxyMembership
 {
-    public static void getMemberDetails()
+    public static void getMemberDetails(int memberID, String sql)
     {
         // TODO - implement DBProxyMembership.getMemberDetails
     }
@@ -132,7 +132,7 @@ public class DBProxyMembership
      * 
      * @param member
      */
-    public static void changeMemberDetails(Member member)
+    public static void changeMemberDetails(int memberID, String sql)
     {
         // TODO - implement DBProxyMembership.changeMemberDetails
     }
