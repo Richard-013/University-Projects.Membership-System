@@ -263,7 +263,7 @@ public class NewMemberUI extends javax.swing.JFrame
             }
         });
 
-        dobYearCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Year", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029" }));
+        dobYearCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Year", "2003", "2002", "2001", "2000", "1999", "1998", "1997", "1996", "1995", "1994", "1993", "1992", "1991", "1990", "1989", "1988", "1987", "1986", "1985", "1984", "1983", "1982", "1981", "1980" }));
         dobYearCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dobYearComboActionPerformed(evt);
@@ -672,7 +672,10 @@ public class NewMemberUI extends javax.swing.JFrame
                     warningLabel.setText("Registration Complete");
                     break;
                 case 1:
-                    warningLabel.setText("Error");
+                    warningLabel.setText("Connection Error");
+                    break;
+                case 2:
+                    warningLabel.setText("SQL Error");
                     break;
                 default:
                     warningLabel.setText("Error");
@@ -690,8 +693,38 @@ public class NewMemberUI extends javax.swing.JFrame
                 dobMonthCombo.getSelectedItem().toString() + "/" +
                 dobYearCombo.getSelectedItem().toString();
         int contactNum = Integer.parseInt(contactNumEntry.getText());
-        int membershipType = Integer.parseInt(membershipCombo.getSelectedItem().toString());
-        int gender = Integer.parseInt(genderCombo.getSelectedItem().toString());
+        
+        int membershipType = 0;
+        switch(membershipCombo.getSelectedItem().toString())
+        {
+            case "Silver":
+                membershipType = 1;
+                break;
+            case "Platinum":
+                membershipType = 3;
+                break;
+            default:
+                membershipType = 1;
+        }
+        
+        int gender = 0;
+        switch(genderCombo.getSelectedItem().toString())
+        {
+            case "Male":
+                gender = 1;
+                break;
+            case "Female":
+                gender = 2;
+                break;
+            case "Other":
+                gender = 3;
+                break;
+            case "Prefer Not To Say":
+                gender = 4;
+                break;
+            default:
+                gender = 4;
+        }
         
         // Submit details to controller
         newCon.addPersonalDetails(firstName, lastName, email, contactNum,

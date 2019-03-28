@@ -67,6 +67,13 @@ public class NewMemberController
     
     public int completeNewMember()
     {
-        return 0;
+        String sqlPersonal = "INSERT INTO MEMBER (firstname, lastname, email, contactnumber, membership, dateofbirth, gender, memberid)"
+                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        String sqlID = "SELECT memberID FROM MEMBER WHERE firstname = ? AND lastname = ? AND contactnumber = ?";
+        String sqlAddress = "INSERT INTO ADDRESS (memid, addressLine1, addressLine2, city, county, postCode, addressid)"
+                + "VALUES (?, ?, ?, ?, ?, ?, ?)";
+        String sqlBilling = "INSERT INTO BILLINGINFO (memberID, cardNum, cardName, expiryMonth, expiryYear, security, billingid)"
+                + "VALUES (?, ?, ?, ?, ?, ?, ?)";
+        return DBProxyMembership.addNewMember(sqlPersonal, sqlID, sqlAddress, sqlBilling);
     }
 }
