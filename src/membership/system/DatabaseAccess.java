@@ -2,7 +2,7 @@ package membership.system;
 
 import java.sql.*;
 
-public class DatabaseAccess
+public class DatabaseAccess implements DatabaseAccessRepo
 {
     private static Connection conn;
     private static final String CONNECTIONURL = "jdbc:derby://localhost:1527/MembershipDB";
@@ -13,6 +13,11 @@ public class DatabaseAccess
     public static int billID;
     
     // DB Connection
+
+    /**
+     *
+     * @return conn
+     */
     public static Connection makeConnection()
     {
         conn = null;
