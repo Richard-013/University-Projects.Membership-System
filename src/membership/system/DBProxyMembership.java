@@ -90,6 +90,15 @@ public class DBProxyMembership
         
         return 0;
     }
+    
+    /**
+     * 
+     * @param memberID
+     */
+    public static int delete(int memberID, String sql)
+    {
+        return 0;
+    }
 
     /**
      * 
