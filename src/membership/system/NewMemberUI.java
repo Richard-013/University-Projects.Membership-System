@@ -22,6 +22,7 @@ public class NewMemberUI extends javax.swing.JFrame
     public NewMemberUI()
     {
         initComponents();
+        warningLabel.setText("");
         newCon = new NewMemberController();
         
         textFields = new ArrayList<javax.swing.JTextField>();
@@ -100,6 +101,7 @@ public class NewMemberUI extends javax.swing.JFrame
         dobDayCombo = new javax.swing.JComboBox<>();
         genderLabel = new javax.swing.JLabel();
         genderCombo = new javax.swing.JComboBox<>();
+        warningLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(600, 400));
@@ -451,6 +453,8 @@ public class NewMemberUI extends javax.swing.JFrame
                 .addContainerGap())
         );
 
+        warningLabel.setText("jLabel1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -467,6 +471,8 @@ public class NewMemberUI extends javax.swing.JFrame
                         .addGap(0, 20, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(backButton)
+                        .addGap(165, 165, 165)
+                        .addComponent(warningLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(timeAndDateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
@@ -475,9 +481,11 @@ public class NewMemberUI extends javax.swing.JFrame
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(backButton)
-                    .addComponent(timeAndDateLabel))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(backButton)
+                        .addComponent(timeAndDateLabel))
+                    .addComponent(warningLabel, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
@@ -657,6 +665,18 @@ public class NewMemberUI extends javax.swing.JFrame
             submitPersonalDetails();
             submitAddressDetails();
             submitBillingDetails();
+            
+            switch(newCon.completeNewMember())
+            {
+                case 0:
+                    warningLabel.setText("Registration Complete");
+                    break;
+                case 1:
+                    warningLabel.setText("Error");
+                    break;
+                default:
+                    warningLabel.setText("Error");
+            }
         }
     }
     
@@ -751,5 +771,6 @@ public class NewMemberUI extends javax.swing.JFrame
     private javax.swing.JLabel securityLabel;
     private javax.swing.JButton submitButton;
     private javax.swing.JLabel timeAndDateLabel;
+    private javax.swing.JLabel warningLabel;
     // End of variables declaration//GEN-END:variables
 }

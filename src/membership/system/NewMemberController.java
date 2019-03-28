@@ -20,7 +20,13 @@ public class NewMemberController
     public void addPersonalDetails(String firstName, String lastName,
         String email, int contactNumber, int membership, String dateOfBirth, int gender)
     {
-        // TODO - implement NewMemberController.addPersonalDetails
+        AdvisorUI.currentMember.setFirstName(firstName);
+        AdvisorUI.currentMember.setLastName(lastName);
+        AdvisorUI.currentMember.setEmail(email);
+        AdvisorUI.currentMember.setContactNumber(contactNumber);
+        AdvisorUI.currentMember.setMembershipType(membership);
+        AdvisorUI.currentMember.setDateOfBirth(dateOfBirth);
+        AdvisorUI.currentMember.setGender(gender);
     }
 
     /**
@@ -34,7 +40,11 @@ public class NewMemberController
     public void addAddressDetails(String addressLine1, String addressLine2,
         String city, String county, String postcode)
     {
-        // TODO - implement NewMemberController.addAddressDetails
+        AdvisorUI.currentMember.setAddressLine1(addressLine1);
+        AdvisorUI.currentMember.setAddressLine2(addressLine2);
+        AdvisorUI.currentMember.setCity(city);
+        AdvisorUI.currentMember.setCounty(county);
+        AdvisorUI.currentMember.setPostcode(postcode);
     }
 
     /**
@@ -48,6 +58,15 @@ public class NewMemberController
     public void addBillingDetails(int cardNum, String cardName, int expiryMonth,
         int expiryYear, int security)
     {
-        // TODO - implement NewMemberController.addBillingDetails
+        AdvisorUI.currentMember.setCardNumber(cardNum);
+        AdvisorUI.currentMember.setCardName(cardName);
+        AdvisorUI.currentMember.setExpiryMonth(expiryMonth);
+        AdvisorUI.currentMember.setExpiryYear(expiryYear);
+        AdvisorUI.currentMember.setSecurity(security);
+    }
+    
+    public int completeNewMember()
+    {
+        return 0;
     }
 }

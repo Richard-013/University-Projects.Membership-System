@@ -10,6 +10,11 @@ public class DBProxyMembership
     {
         // TODO - implement DBProxyMembership.getMemberDetails
     }
+    
+    public static void addNewMember(String sql)
+    {
+        // TODO - implement DBProxyMembership.getMemberDetails
+    }
 
     /**
      * 
