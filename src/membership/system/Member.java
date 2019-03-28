@@ -21,11 +21,7 @@ public class Member
 	private int security;
         public boolean discount;
 
-	/**
-	 * 
-	 * @param memberID
-	 */
-	public Member(int memberID)
+	public Member()
         {
 		// TODO - implement Member.Member
 	}

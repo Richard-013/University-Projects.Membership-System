@@ -5,6 +5,8 @@
  */
 package membership.system;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author hortonr6
@@ -12,6 +14,8 @@ package membership.system;
 public class NewMemberUI extends javax.swing.JFrame
 {
     private NewMemberController newCon;
+    private ArrayList<javax.swing.JTextField> textFields;
+    private ArrayList<javax.swing.JComboBox> comboBoxes;
     /**
      * Creates new form NewMember
      */
@@ -19,6 +23,30 @@ public class NewMemberUI extends javax.swing.JFrame
     {
         initComponents();
         newCon = new NewMemberController();
+        
+        textFields = new ArrayList<javax.swing.JTextField>();
+        textFields.add(firstNameEntry);
+        textFields.add(lastNameEntry);
+        textFields.add(firstNameEntry);
+        textFields.add(contactNumEntry);
+        textFields.add(emailEntry);
+        textFields.add(addressLine1Entry);
+        textFields.add(addressLine2Entry);
+        textFields.add(cityEntry);
+        textFields.add(postCodeEntry);
+        textFields.add(countyEntry);
+        textFields.add(cardNumEntry);
+        textFields.add(cardNameEntry);
+        textFields.add(securityEntry);
+        
+        comboBoxes = new ArrayList<javax.swing.JComboBox>();
+        comboBoxes.add(genderCombo);
+        comboBoxes.add(dobDayCombo);
+        comboBoxes.add(dobMonthCombo);
+        comboBoxes.add(dobYearCombo);
+        comboBoxes.add(membershipCombo);
+        comboBoxes.add(expiryMonthCombo);
+        comboBoxes.add(expiryYearCombo);
     }
 
     /**
@@ -594,7 +622,84 @@ public class NewMemberUI extends javax.swing.JFrame
 
     private void submitNewMember()
     {
-	// TODO - implement NewMember_UI.submitNewMember
+        boolean allText = false;
+        boolean allCombo = false;
+        
+        for(javax.swing.JTextField field : textFields)
+        {
+            if(field.getText() == "")
+            {
+                allText = false;
+                break;
+            }
+            else
+            {
+                allText = true;
+            }
+        }
+        
+        for(javax.swing.JComboBox combo : comboBoxes)
+        {
+            if(combo.getSelectedIndex() == 0)
+            {
+                allCombo = false;
+                break;
+            }
+            else
+            {
+                allCombo = true;
+            }
+        }
+        
+        if(allText && allCombo)
+        {
+            AdvisorUI.currentMember = new Member();
+            submitPersonalDetails();
+            submitAddressDetails();
+            submitBillingDetails();
+        }
+    }
+    
+    private void submitPersonalDetails()
+    {
+        // Get personal details from the form
+        String firstName = firstNameEntry.getText();
+        String lastName = lastNameEntry.getText();
+        String email = emailEntry.getText();
+        String dateOfBirth = dobDayCombo.getSelectedItem().toString() + "/" +
+                dobMonthCombo.getSelectedItem().toString() + "/" +
+                dobYearCombo.getSelectedItem().toString();
+        int contactNum = Integer.parseInt(contactNumEntry.getText());
+        int membershipType = Integer.parseInt(membershipCombo.getSelectedItem().toString());
+        int gender = Integer.parseInt(genderCombo.getSelectedItem().toString());
+        
+        // Submit details to controller
+        newCon.addPersonalDetails(firstName, lastName, email, contactNum,
+                membershipType, dateOfBirth, gender);
+    }
+    
+    private void submitAddressDetails()
+    {
+        // Get address details from the form
+        String addressLine1 = addressLine1Entry.getText();
+        String addressLine2 = addressLine2Entry.getText();
+        String city = cityEntry.getText();
+        String postCode = postCodeEntry.getText();
+        String county = countyEntry.getText();
+        
+        // Submit details to controller
+        newCon.addAddressDetails(addressLine1, addressLine2, city, county, postCode);
+    }
+    
+    private void submitBillingDetails()
+    {
+        int cardNum = Integer.parseInt(cardNumEntry.getText());
+        String cardName = cardNameEntry.getText();
+        int security = Integer.parseInt(securityEntry.getText());
+        int expMonth = Integer.parseInt(expiryMonthCombo.getSelectedItem().toString());
+        int expYear = Integer.parseInt(expiryYearCombo.getSelectedItem().toString());
+        
+        newCon.addBillingDetails(cardNum, cardName, expMonth, expYear, security);
     }
 
     private void cancelNewMember()
