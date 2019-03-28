@@ -117,7 +117,7 @@ public class UpdateMemberController
      */
     private int deletePersonalDetails(int memberID)
     {
-        String sql = "DELETE FROM MEMBER WHERE memid = ?";
+        String sql = "DELETE FROM MEMBER WHERE memberid = ?";
         return DBProxyMembership.delete(memberID, sql);
     }
 
@@ -137,7 +137,7 @@ public class UpdateMemberController
      */
     private int deleteBillingDetails(int memberID)
     {
-        String sql = "DELETE FROM BILLINGINFO WHERE memid = ?";
+        String sql = "DELETE FROM BILLINGINFO WHERE memberid = ?";
         return DBProxyMembership.delete(memberID, sql);
     }
 }
