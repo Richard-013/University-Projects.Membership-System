@@ -5,6 +5,10 @@
  */
 package membership.system;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  *
  * @author Richard
@@ -17,6 +21,9 @@ public class MainMenuUI extends javax.swing.JFrame
     public MainMenuUI()
     {
         initComponents();
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+	Date date = new Date();
+        timeAndDateLabel.setText(dateFormat.format(date));
     }
 
     /**
@@ -33,7 +40,6 @@ public class MainMenuUI extends javax.swing.JFrame
         titleLabel = new javax.swing.JLabel();
         timeAndDateLabel = new javax.swing.JLabel();
         logoutButton = new javax.swing.JButton();
-        usernameLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(600, 400));
@@ -70,10 +76,6 @@ public class MainMenuUI extends javax.swing.JFrame
             }
         });
 
-        usernameLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        usernameLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        usernameLabel.setText("Username");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -84,9 +86,7 @@ public class MainMenuUI extends javax.swing.JFrame
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(titleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 151, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(usernameLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(timeAndDateLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(timeAndDateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(logoutButton)))
@@ -105,10 +105,8 @@ public class MainMenuUI extends javax.swing.JFrame
                     .addComponent(titleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(timeAndDateLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(usernameLabel)))
-                .addGap(35, 35, 35)
+                        .addComponent(timeAndDateLabel)))
+                .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(newMemberButton, javax.swing.GroupLayout.DEFAULT_SIZE, 233, Short.MAX_VALUE)
                     .addComponent(editMemberButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -198,6 +196,5 @@ public class MainMenuUI extends javax.swing.JFrame
     private javax.swing.JButton newMemberButton;
     private javax.swing.JLabel timeAndDateLabel;
     private javax.swing.JLabel titleLabel;
-    private javax.swing.JLabel usernameLabel;
     // End of variables declaration//GEN-END:variables
 }

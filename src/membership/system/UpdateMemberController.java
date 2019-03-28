@@ -13,6 +13,7 @@ public class UpdateMemberController
      */
     public int getDetails(String memberID)
     {
+        AdvisorUI.currentMember = new Member();
         int intMemberID = Integer.parseInt(memberID);
         int billingCheck = getBillingDetails(intMemberID);
         int addressCheck = getAddressDetails(intMemberID);

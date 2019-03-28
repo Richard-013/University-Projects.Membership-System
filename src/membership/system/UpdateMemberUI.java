@@ -5,7 +5,10 @@
  */
 package membership.system;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  *
@@ -25,6 +28,9 @@ public class UpdateMemberUI extends javax.swing.JFrame {
     {
         initComponents();
         warningLabel.setText("Search for a member by ID");
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+	Date date = new Date();
+        timeAndDateLabel.setText(dateFormat.format(date));
         updateCon = new UpdateMemberController();
         
         textFields = new ArrayList<javax.swing.JTextField>();
@@ -130,6 +136,11 @@ public class UpdateMemberUI extends javax.swing.JFrame {
         });
 
         goButton.setText("Go");
+        goButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                goButtonActionPerformed(evt);
+            }
+        });
 
         backButton.setText("Back");
         backButton.addActionListener(new java.awt.event.ActionListener() {
@@ -248,7 +259,7 @@ public class UpdateMemberUI extends javax.swing.JFrame {
 
         expiryDateLabel.setText("Expiry Date");
 
-        expiryMonthCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Month", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
+        expiryMonthCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Month", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
         expiryMonthCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 expiryMonthComboActionPerformed(evt);
@@ -298,7 +309,7 @@ public class UpdateMemberUI extends javax.swing.JFrame {
             }
         });
 
-        dobDayCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Day", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        dobDayCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Day", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
         dobDayCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dobDayComboActionPerformed(evt);
@@ -680,6 +691,10 @@ public class UpdateMemberUI extends javax.swing.JFrame {
         cancelUpdate();
     }//GEN-LAST:event_cancelButtonActionPerformed
 
+    private void goButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_goButtonActionPerformed
+        retrieveDetails();
+    }//GEN-LAST:event_goButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -729,11 +744,52 @@ public class UpdateMemberUI extends javax.swing.JFrame {
 
     private void retrieveDetails()
     {
-        switch(updateCon.getDetails(memberID))
+        switch(updateCon.getDetails(memberIDEntry.getText()))
         {
             case 0:
                 warningLabel.setText("Successfully Retrieved Data");
                 firstNameEntry.setText(AdvisorUI.currentMember.getFirstName());
+                lastNameEntry.setText(AdvisorUI.currentMember.getLastName());
+                contactNumEntry.setText(Integer.toString(AdvisorUI.currentMember.getContactNumber()));
+                emailEntry.setText(AdvisorUI.currentMember.getEmail());
+                addressLine1Entry.setText(AdvisorUI.currentMember.getAddressLine1());
+                addressLine2Entry.setText(AdvisorUI.currentMember.getAddressLine2());
+                cityEntry.setText(AdvisorUI.currentMember.getCity());
+                countyEntry.setText(AdvisorUI.currentMember.getCounty());
+                postCodeEntry.setText(AdvisorUI.currentMember.getPostcode());
+                
+                switch(AdvisorUI.currentMember.getMembershipType())
+                {
+                    case 1:
+                        membershipCombo.setSelectedIndex(1);
+                        currentMembershipDisplayLabel.setText("Silver");
+                        break;
+                    case 2:
+                        membershipCombo.setSelectedIndex(2);
+                        currentMembershipDisplayLabel.setText("Gold");
+                        break;
+                    case 3:
+                        membershipCombo.setSelectedIndex(3);
+                        currentMembershipDisplayLabel.setText("Platinum");
+                        break;
+                    default:
+                        membershipCombo.setSelectedIndex(1);
+                        currentMembershipDisplayLabel.setText("Silver");
+                }
+                
+                cardNameEntry.setText(AdvisorUI.currentMember.getCardName());
+                cardNumEntry.setText(Integer.toString(AdvisorUI.currentMember.getCardNumber()));
+                securityEntry.setText(Integer.toString(AdvisorUI.currentMember.getSecurity()));
+                
+                genderCombo.setSelectedIndex(AdvisorUI.currentMember.getGender());
+                String dob = AdvisorUI.currentMember.getDateOfBirth();
+                String[] dobParts = dob.split("-");
+                dobDayCombo.setSelectedItem(dobParts[2]);
+                dobMonthCombo.setSelectedItem(dobParts[1]);
+                dobYearCombo.setSelectedItem(dobParts[0]);
+                
+                expiryMonthCombo.setSelectedItem(Integer.toString(AdvisorUI.currentMember.getExpiryMonth()));
+                expiryYearCombo.setSelectedItem(Integer.toString(AdvisorUI.currentMember.getExpiryYear()));
                 break;
             case 1:
                 warningLabel.setText("SQL Error");

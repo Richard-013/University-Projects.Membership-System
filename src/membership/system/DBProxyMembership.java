@@ -17,13 +17,13 @@ public class DBProxyMembership
             {
                 PreparedStatement ps = conn.prepareStatement(sql);
                 ps.setInt(1, memberID);
-                ps.executeUpdate();
                 ResultSet rs = null;
                 
                 rs = ps.executeQuery();
                 // Member Table
                 if(table == 1)
                 {
+                    System.out.println("Member Start");
                     rs.next();
                     AdvisorUI.currentMember.setFirstName(rs.getString("FIRSTNAME"));
                     AdvisorUI.currentMember.setLastName(rs.getString("LASTNAME"));
@@ -32,26 +32,31 @@ public class DBProxyMembership
                     AdvisorUI.currentMember.setMembershipType(rs.getInt("MEMBERSHIP"));
                     AdvisorUI.currentMember.setDateOfBirth(rs.getString("DATEOFBIRTH"));
                     AdvisorUI.currentMember.setGender(rs.getInt("GENDER"));
+                    System.out.println("Member End");
                 }
                 // Address Table
                 else if(table == 2)
                 {
+                    System.out.println("Address Start");
                     rs.next();
                     AdvisorUI.currentMember.setAddressLine1(rs.getString("ADDRESSLINE1"));
                     AdvisorUI.currentMember.setAddressLine2(rs.getString("ADDRESSLINE2"));
                     AdvisorUI.currentMember.setCity(rs.getString("CITY"));
                     AdvisorUI.currentMember.setCounty(rs.getString("COUNTY"));
                     AdvisorUI.currentMember.setPostcode(rs.getString("POSTCODE"));
+                    System.out.println("Address End");
                 }
                 // Billing Table
                 else
                 {
+                    System.out.println("Billing Start");
                     rs.next();
                     AdvisorUI.currentMember.setCardName(rs.getString("CARDNAME"));
                     AdvisorUI.currentMember.setCardNumber(rs.getInt("CARDNUM"));
                     AdvisorUI.currentMember.setExpiryMonth(rs.getInt("EXPIRYMONTH"));
                     AdvisorUI.currentMember.setExpiryYear(rs.getInt("EXPIRYYEAR"));
                     AdvisorUI.currentMember.setSecurity(rs.getInt("SECURITY"));
+                    System.out.println("Billing End");
                 }
 
                 rs.close();

@@ -5,7 +5,10 @@
  */
 package membership.system;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  *
@@ -23,6 +26,9 @@ public class NewMemberUI extends javax.swing.JFrame
     {
         initComponents();
         warningLabel.setText("Enter New Member");
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+	Date date = new Date();
+        timeAndDateLabel.setText(dateFormat.format(date));
         newCon = new NewMemberController();
         
         textFields = new ArrayList<javax.swing.JTextField>();
