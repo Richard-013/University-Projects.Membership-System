@@ -729,7 +729,21 @@ public class UpdateMemberUI extends javax.swing.JFrame {
 
     private void retrieveDetails()
     {
-	// TODO - implement UpdateMember_UI.retrieveDetails
+        switch(updateCon.getDetails(memberID))
+        {
+            case 0:
+                warningLabel.setText("Successfully Retrieved Data");
+                firstNameEntry.setText(AdvisorUI.currentMember.getFirstName());
+                break;
+            case 1:
+                warningLabel.setText("SQL Error");
+                break;
+            case 2:
+                warningLabel.setText("Connection Error");
+                break;
+            default:
+                warningLabel.setText("Error retrieving member details");
+        }
     }
 
     private void submitUpdate()

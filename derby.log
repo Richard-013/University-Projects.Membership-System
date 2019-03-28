@@ -1,7 +1,7 @@
-Thu Mar 28 14:52:37 GMT 2019 : Apache Derby Network Server - 10.11.1.2 - (1629631) started and ready to accept connections on port 1527
+Thu Mar 28 16:16:17 GMT 2019 : Apache Derby Network Server - 10.11.1.2 - (1629631) started and ready to accept connections on port 1527
 ----------------------------------------------------------------
-Thu Mar 28 14:52:40 GMT 2019:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.2 - (1629631): instance a816c00e-0169-c4c9-dbae-ffffc2b5ee48 
+Thu Mar 28 16:16:19 GMT 2019:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.2 - (1629631): instance a816c00e-0169-c516-7701-ffffc2b5ee48 
 on database directory H:\Computer Science\260CT\Coursework\Membership-System\MembershipDB with class loader sun.misc.Launcher$AppClassLoader@6f94fa3e 
 Loaded from file:/C:/Program%20Files/Java/jdk1.8.0_131/db/lib/derby.jar
 java.vendor=Oracle Corporation
@@ -12,7 +12,7 @@ os.arch=amd64
 os.version=10.0
 derby.system.home=H:\Computer Science\260CT\Coursework\Membership-System
 Database Class Loader started - derby.database.classpath=''
-Thu Mar 28 14:52:42 GMT 2019 Thread[DRDAConnThread_2,5,main] (XID = 1542), (SESSIONID = 0), (DATABASE = MembershipDB), (DRDAID = {1}), Cleanup action starting
+Thu Mar 28 16:16:21 GMT 2019 Thread[DRDAConnThread_2,5,main] (XID = 1669), (SESSIONID = 0), (DATABASE = MembershipDB), (DRDAID = {1}), Cleanup action starting
 java.sql.SQLNonTransientConnectionException: Connection authentication failure occurred.  Reason: Invalid authentication..
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
@@ -60,4 +60,4 @@ ERROR 08004: Connection authentication failure occurred.  Reason: Invalid authen
 	at org.apache.derby.impl.drda.DRDAConnThread.run(Unknown Source)
 ============= end nested exception, level (1) ===========
 Cleanup action completed
-Thu Mar 28 14:52:42 GMT 2019 Thread[DRDAConnThread_2,5,main] (DATABASE = MembershipDB), (DRDAID = {1}), Connection authentication failure occurred.  Reason: Invalid authentication..
+Thu Mar 28 16:16:21 GMT 2019 Thread[DRDAConnThread_2,5,main] (DATABASE = MembershipDB), (DRDAID = {1}), Connection authentication failure occurred.  Reason: Invalid authentication..

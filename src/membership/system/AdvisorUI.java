@@ -25,8 +25,11 @@ public class AdvisorUI {
      */
     public static void main(String[] args)
     {
-        login = new LoginUI();
-        login.setVisible(true);
+        //login = new LoginUI();
+        //login.setVisible(true);
+        
+        mainMenu = new MainMenuUI();
+        mainMenu.setVisible(true);
         
         // DB Connection
         String connectionURL = "jdbc:derby://localhost:1527/MembershipDB";

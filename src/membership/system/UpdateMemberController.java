@@ -4,45 +4,61 @@ public class UpdateMemberController
 {
     public UpdateMemberController()
     {
-            // TODO - implement UpdateMemberController.UpdateMemberController
+        // TODO - implement UpdateMemberController.UpdateMemberController
     }
 
     /**
      * 
      * @param memberID
      */
-    public void getDetails(int memberID)
+    public int getDetails(String memberID)
     {
-        // SELECT Statement to get all data on one member
-        String sql = "";
-        DBProxyMembership.getMemberDetails(memberID, sql);
+        int intMemberID = Integer.parseInt(memberID);
+        int billingCheck = getBillingDetails(intMemberID);
+        int addressCheck = getAddressDetails(intMemberID);
+        int personalCheck = getPersonalDetails(intMemberID);
+        if(billingCheck == 0 && addressCheck == 0 && personalCheck == 0)
+        {
+            return 0;
+        }
+        else if(billingCheck == 1 || addressCheck == 1 || personalCheck == 1)
+        {
+            return 1;
+        }
+        else
+        {
+            return 2;
+        }
     }
 
     /**
      * 
      * @param memberID
      */
-    private void getPersonalDetails(int memberID)
+    private int getPersonalDetails(int memberID)
     {
-            // TODO - implement UpdateMemberController.getPersonalDetails
+        String sql = "SELECT * FROM MEMBER WHERE memberID = ?";
+        return DBProxyMembership.getDetails(1, memberID, sql);
     }
 
     /**
      * 
      * @param memberID
      */
-    private void getAddressDetails(int memberID) {
-            // TODO - implement UpdateMemberController.getAddressDetails
-            throw new UnsupportedOperationException();
-    }
-
-    /**
-     * 
-     * @param memberID
-     */
-    private void getBillingDetails(int memberID)
+    private int getAddressDetails(int memberID)
     {
-            // TODO - implement UpdateMemberController.getBillingDetails
+        String sql = "SELECT * FROM ADDRESS WHERE memID = ?";
+        return DBProxyMembership.getDetails(2, memberID, sql);
+    }
+
+    /**
+     * 
+     * @param memberID
+     */
+    private int getBillingDetails(int memberID)
+    {
+        String sql = "SELECT * FROM BILLINGINFO WHERE memberID = ?";
+        return DBProxyMembership.getDetails(3, memberID, sql);
     }
 
     /**
@@ -59,7 +75,7 @@ public class UpdateMemberController
             String email, int contactNumber, int membership,
             String dateOfBirth, int gender)
     {
-            // TODO - implement UpdateMemberController.updatePersonalDetails
+        // TODO - implement UpdateMemberController.updatePersonalDetails
     }
 
     /**
@@ -73,7 +89,7 @@ public class UpdateMemberController
     public void updateAddressDetails(String addressLine1,
             String addressLine2, String city, String county, String postcode)
     {
-            // TODO - implement UpdateMemberController.updateAddressDetails
+        // TODO - implement UpdateMemberController.updateAddressDetails
     }
 
     /**
@@ -86,7 +102,7 @@ public class UpdateMemberController
     public void updateBillingDetails(String cardName, int expiryMonth,
             int expiryYear, int security)
     {
-            // TODO - implement UpdateMemberController.updateBillingDetails
+        // TODO - implement UpdateMemberController.updateBillingDetails
     }
 
     /**

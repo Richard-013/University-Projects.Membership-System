@@ -6,9 +6,73 @@ import javax.swing.table.DefaultTableModel;
 
 public class DBProxyMembership
 {
-    public static void getMemberDetails(int memberID, String sql)
+    public static int getDetails(int table, int memberID, String sql)
     {
-        // TODO - implement DBProxyMembership.getMemberDetails
+        try
+        {
+            Connection conn = DatabaseAccess.makeConnection();
+            System.out.println("Connecting...");
+
+            if(conn != null)
+            {
+                PreparedStatement ps = conn.prepareStatement(sql);
+                ps.setInt(1, memberID);
+                ps.executeUpdate();
+                ResultSet rs = null;
+                
+                rs = ps.executeQuery();
+                // Member Table
+                if(table == 1)
+                {
+                    rs.next();
+                    AdvisorUI.currentMember.setFirstName(rs.getString("FIRSTNAME"));
+                    AdvisorUI.currentMember.setLastName(rs.getString("LASTNAME"));
+                    AdvisorUI.currentMember.setEmail(rs.getString("EMAIL"));
+                    AdvisorUI.currentMember.setContactNumber(rs.getInt("CONTACTNUMBER"));
+                    AdvisorUI.currentMember.setMembershipType(rs.getInt("MEMBERSHIP"));
+                    AdvisorUI.currentMember.setDateOfBirth(rs.getString("DATEOFBIRTH"));
+                    AdvisorUI.currentMember.setGender(rs.getInt("GENDER"));
+                }
+                // Address Table
+                else if(table == 2)
+                {
+                    rs.next();
+                    AdvisorUI.currentMember.setAddressLine1(rs.getString("ADDRESSLINE1"));
+                    AdvisorUI.currentMember.setAddressLine2(rs.getString("ADDRESSLINE2"));
+                    AdvisorUI.currentMember.setCity(rs.getString("CITY"));
+                    AdvisorUI.currentMember.setCounty(rs.getString("COUNTY"));
+                    AdvisorUI.currentMember.setPostcode(rs.getString("POSTCODE"));
+                }
+                // Billing Table
+                else
+                {
+                    rs.next();
+                    AdvisorUI.currentMember.setCardName(rs.getString("CARDNAME"));
+                    AdvisorUI.currentMember.setCardNumber(rs.getInt("CARDNUM"));
+                    AdvisorUI.currentMember.setExpiryMonth(rs.getInt("EXPIRYMONTH"));
+                    AdvisorUI.currentMember.setExpiryYear(rs.getInt("EXPIRYYEAR"));
+                    AdvisorUI.currentMember.setSecurity(rs.getInt("SECURITY"));
+                }
+
+                rs.close();
+                ps.close();
+                conn.close();
+                System.out.println("Connection is closed.");  
+            }
+            else
+            {
+                System.out.println("null");
+                return 1;
+            }
+        }
+        catch(SQLException ex)
+        {             
+            System.out.println("SQLException error");
+            System.out.println(ex.getMessage());
+            return 2;
+        }
+        
+        return 0;
     }
     
     public static int addNewMember(String sqlPersonal, String sqlID, String sqlAddress, String sqlBilling)
