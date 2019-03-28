@@ -5,6 +5,8 @@
  */
 package membership.system;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author hortonr6
@@ -13,13 +15,41 @@ public class UpdateMemberUI extends javax.swing.JFrame {
 
     private UpdateMemberController updateCon;
     public static String memberID;
+    private ArrayList<javax.swing.JTextField> textFields;
+    private ArrayList<javax.swing.JComboBox> comboBoxes;
+    
     /**
      * Creates new form UpdateMember
      */
     public UpdateMemberUI()
     {
         initComponents();
+        warningLabel.setText("Search for a member by ID");
         updateCon = new UpdateMemberController();
+        
+        textFields = new ArrayList<javax.swing.JTextField>();
+        textFields.add(firstNameEntry);
+        textFields.add(lastNameEntry);
+        textFields.add(firstNameEntry);
+        textFields.add(contactNumEntry);
+        textFields.add(emailEntry);
+        textFields.add(addressLine1Entry);
+        textFields.add(addressLine2Entry);
+        textFields.add(cityEntry);
+        textFields.add(postCodeEntry);
+        textFields.add(countyEntry);
+        textFields.add(cardNumEntry);
+        textFields.add(cardNameEntry);
+        textFields.add(securityEntry);
+        
+        comboBoxes = new ArrayList<javax.swing.JComboBox>();
+        comboBoxes.add(genderCombo);
+        comboBoxes.add(dobDayCombo);
+        comboBoxes.add(dobMonthCombo);
+        comboBoxes.add(dobYearCombo);
+        comboBoxes.add(membershipCombo);
+        comboBoxes.add(expiryMonthCombo);
+        comboBoxes.add(expiryYearCombo);
     }
 
     /**
@@ -81,6 +111,7 @@ public class UpdateMemberUI extends javax.swing.JFrame {
         currentMembershipDisplayLabel = new javax.swing.JLabel();
         findIDButton = new javax.swing.JButton();
         cancelButton = new javax.swing.JButton();
+        warningLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(600, 400));
@@ -188,7 +219,7 @@ public class UpdateMemberUI extends javax.swing.JFrame {
 
         membershipLabel.setText("Membership");
 
-        membershipCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Membership", "Silver", "Platinum" }));
+        membershipCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Membership", "Silver", "Gold", "Platinum" }));
         membershipCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 membershipComboActionPerformed(evt);
@@ -260,7 +291,7 @@ public class UpdateMemberUI extends javax.swing.JFrame {
             }
         });
 
-        dobYearCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Year", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029" }));
+        dobYearCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Year", "2003", "2002", "2001", "2000", "1999", "1998", "1997", "1996", "1995", "1994", "1993", "1992", "1991", "1990", "1989", "1988", "1987", "1986", "1985", "1984", "1983", "1982", "1981", "1980", "1979", "1978", "1977", "1976", "1975", "1974", "1973", "1972", "1971", "1970", "1969", "1968", "1967", "1966", "1965", "1964", "1963", "1962", "1961", "1960", "1959", "1958", "1957", "1956", "1955", "1954", "1953", "1952", "1951", "1950" }));
         dobYearCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dobYearComboActionPerformed(evt);
@@ -477,6 +508,8 @@ public class UpdateMemberUI extends javax.swing.JFrame {
             }
         });
 
+        warningLabel.setText("jLabel1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -504,18 +537,23 @@ public class UpdateMemberUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(memberIDEntry, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(goButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(findIDButton)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(warningLabel)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(goButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(findIDButton)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(backButton)
-                    .addComponent(timeAndDateLabel))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(backButton)
+                        .addComponent(timeAndDateLabel))
+                    .addComponent(warningLabel, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(83, 83, 83)
@@ -719,7 +757,15 @@ public class UpdateMemberUI extends javax.swing.JFrame {
 
     private void resetDetails()
     {
-	// TODO - implement UpdateMember_UI.resetDetails
+	for(javax.swing.JTextField field : textFields)
+        {
+            field.setText("");
+        }
+        
+        for(javax.swing.JComboBox combo : comboBoxes)
+        {
+            combo.setSelectedIndex(0);
+        }
     }
 
     private void deleteMembership()
@@ -784,5 +830,6 @@ public class UpdateMemberUI extends javax.swing.JFrame {
     private javax.swing.JLabel securityLabel;
     private javax.swing.JLabel timeAndDateLabel;
     private javax.swing.JButton updateButton;
+    private javax.swing.JLabel warningLabel;
     // End of variables declaration//GEN-END:variables
 }
