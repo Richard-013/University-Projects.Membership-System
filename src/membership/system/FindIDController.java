@@ -10,7 +10,7 @@ public class FindIDController
     {
         String sqlStatement = "SELECT m.memberID, m.firstName, m.lastName, a.addressLine1, a.postcode\n" +
                         "FROM Member m, Address a\n" +
-                        "LEFT JOIN Member ON (SELECT memberID FROM Member WHERE firstName = '?') = a.memberID";
+                        "LEFT JOIN Member ON (SELECT memberID FROM Member WHERE firstName = ?) = a.memID";
 
         DBProxyMembership.searchByName(firstName, sqlStatement);
 
