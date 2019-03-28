@@ -97,6 +97,34 @@ public class DBProxyMembership
      */
     public static int delete(int memberID, String sql)
     {
+        try
+        {
+            Connection conn = DatabaseAccess.makeConnection();
+            System.out.println("Connecting...");
+
+            if(conn != null)
+            {
+                PreparedStatement ps = conn.prepareStatement(sql);
+                ps.setInt(1, memberID);
+                ps.executeUpdate();
+                
+                ps.close();
+                conn.close();
+                System.out.println("Connection is closed.");  
+            }
+            else
+            {
+                System.out.println("null");
+                return 1;
+            }
+        }
+        catch(SQLException ex)
+        {             
+            System.out.println("SQLException error");
+            System.out.println(ex.getMessage());
+            return 2;
+        }
+        
         return 0;
     }
 

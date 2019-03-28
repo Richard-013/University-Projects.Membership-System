@@ -94,39 +94,50 @@ public class UpdateMemberController
      */
     public int deleteMembership(int memberID)
     {
-        deleteBillingDetails(memberID);
-        deleteAddressDetails(memberID);
-        deletePersonalDetails(memberID);
-        return 0;
+        int billingCheck = deleteBillingDetails(memberID);
+        int addressCheck = deleteAddressDetails(memberID);
+        int personalCheck = deletePersonalDetails(memberID);
+        if(billingCheck == 0 && addressCheck == 0 && personalCheck == 0)
+        {
+            return 0;
+        }
+        else if(billingCheck == 1 || addressCheck == 1 || personalCheck == 1)
+        {
+            return 1;
+        }
+        else
+        {
+            return 2;
+        }
     }
 
     /**
      * 
      * @param memberID
      */
-    private void deletePersonalDetails(int memberID)
+    private int deletePersonalDetails(int memberID)
     {
-        String sql = "";
-        DBProxyMembership.delete(memberID, sql);
+        String sql = "DELETE FROM MEMBER WHERE memid = ?";
+        return DBProxyMembership.delete(memberID, sql);
     }
 
     /**
      * 
      * @param memberID
      */
-    private void deleteAddressDetails(int memberID)
+    private int deleteAddressDetails(int memberID)
     {
-        String sql = "";
-        DBProxyMembership.delete(memberID, sql);
+        String sql = "DELETE FROM ADDRESS WHERE memid = ?";
+        return DBProxyMembership.delete(memberID, sql);
     }
 
     /**
      * 
      * @param memberID
      */
-    private void deleteBillingDetails(int memberID)
+    private int deleteBillingDetails(int memberID)
     {
-        String sql = "";
-        DBProxyMembership.delete(memberID, sql);
+        String sql = "DELETE FROM BILLINGINFO WHERE memid = ?";
+        return DBProxyMembership.delete(memberID, sql);
     }
 }

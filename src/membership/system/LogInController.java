@@ -8,7 +8,7 @@ public class LogInController
      */
     private boolean checkUsername(String username)
     {
-        String sql = "SELECT username FROM USER WHERE username = ?";
+        String sql = "SELECT username FROM LOGIN WHERE username = ?";
         return DBProxyLogin.checkForUser(username, sql);
     }
 
@@ -37,8 +37,9 @@ public class LogInController
         else
         {
             // Sets up the advisor class
-            String sql = "SELECT password FROM USER WHERE username = ?";
-            AdvisorUI.currentAdvisor = new Advisor(username, DBProxyLogin.getPassword(username, sql));
+            String sql = "SELECT password FROM LOGIN WHERE username = ?";
+            String dbPassword = DBProxyLogin.getPassword(username, sql);
+            AdvisorUI.currentAdvisor = new Advisor(username, dbPassword);
             
             // Checks if the password is correct or not
             if(!checkPassword(password))

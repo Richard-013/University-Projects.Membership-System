@@ -23,8 +23,9 @@ public class DBProxyLogin
 
                 rs = ps.executeQuery();
                 while(rs.next())
-                { 
-                    if(rs.getString("USERNAME") == username)
+                {
+                    String dbUser = rs.getString("USERNAME");
+                    if(dbUser.equals(username))
                     {
                         rs.close();
                         ps.close();

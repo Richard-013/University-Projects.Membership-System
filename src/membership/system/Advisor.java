@@ -5,37 +5,37 @@ public class Advisor
     private String username;
     private String password;
     
-    public Advisor(String currentUsername, String currentPassword)
+    public Advisor(String inUsername, String inPassword)
     {
-        setUsername(currentUsername);
-        setPassword(currentPassword);
+        setUsername(inUsername);
+        setPassword(inPassword);
     }
 
     public String getUsername()
     {
-        return this.username;
+        return username;
     }
 
     /**
      * 
      * @param username
      */
-    public void setUsername(String username)
+    public void setUsername(String inUsername)
     {
-        this.username = username;
+        username = inUsername;
     }
 
     public String getPassword()
     {
-        return this.password;
+        return password;
     }
 
     /**
      * 
      * @param password
      */
-    public void setPassword(String password)
+    public void setPassword(String inPassword)
     {
-            this.password = password;
+        password = inPassword;
     }
 }
