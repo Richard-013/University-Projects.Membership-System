@@ -92,20 +92,20 @@ public class DBProxyMembership
 
             if(conn != null)
             {
-                PreparedStatement ps = conn.prepareStatement(sqlPersonal);
-                ps.setString(1, AdvisorUI.currentMember.getFirstName());
-                ps.setString(2, AdvisorUI.currentMember.getLastName());
-                ps.setString(3, AdvisorUI.currentMember.getEmail());
-                ps.setInt(4, AdvisorUI.currentMember.getContactNumber());
-                ps.setInt(5, AdvisorUI.currentMember.getMembershipType());
-                ps.setString(6, AdvisorUI.currentMember.getDateOfBirth());
-                ps.setInt(7, AdvisorUI.currentMember.getGender());
-                ps.setInt(8, DatabaseAccess.memID);
-                ps.executeUpdate();
-                ps = null;
+                PreparedStatement personalStmt = conn.prepareStatement(sqlPersonal);
+                personalStmt.setString(1, AdvisorUI.currentMember.getFirstName());
+                personalStmt.setString(2, AdvisorUI.currentMember.getLastName());
+                personalStmt.setString(3, AdvisorUI.currentMember.getEmail());
+                personalStmt.setInt(4, AdvisorUI.currentMember.getContactNumber());
+                personalStmt.setInt(5, AdvisorUI.currentMember.getMembershipType());
+                personalStmt.setString(6, AdvisorUI.currentMember.getDateOfBirth());
+                personalStmt.setInt(7, AdvisorUI.currentMember.getGender());
+                personalStmt.setInt(8, DatabaseAccess.memID);
+                personalStmt.executeUpdate();
+                personalStmt.close();
                 DatabaseAccess.memID += 1;
                 
-                ps = conn.prepareStatement(sqlID);
+                PreparedStatement ps = conn.prepareStatement(sqlID);
                 ps.setString(1, AdvisorUI.currentMember.getFirstName());
                 ps.setString(2, AdvisorUI.currentMember.getLastName());
                 ps.setInt(3, AdvisorUI.currentMember.getContactNumber());
@@ -117,33 +117,33 @@ public class DBProxyMembership
                     AdvisorUI.currentMember.setMemberID(rs.getInt("MEMBERID"));
                 }
 
-                ps = null;
+                ps.close();
                 rs.close();
                 
-                ps = conn.prepareStatement(sqlAddress);
-                ps.setInt(1, AdvisorUI.currentMember.getMemberID());
-                ps.setString(2, AdvisorUI.currentMember.getAddressLine1());
-                ps.setString(3, AdvisorUI.currentMember.getAddressLine2());
-                ps.setString(4, AdvisorUI.currentMember.getCity());
-                ps.setString(5, AdvisorUI.currentMember.getCounty());
-                ps.setString(6, AdvisorUI.currentMember.getPostcode());
-                ps.setInt(7, DatabaseAccess.addID);
-                ps.executeUpdate();
-                ps = null;
+                PreparedStatement addressStmt = conn.prepareStatement(sqlAddress);
+                addressStmt.setInt(1, AdvisorUI.currentMember.getMemberID());
+                addressStmt.setString(2, AdvisorUI.currentMember.getAddressLine1());
+                addressStmt.setString(3, AdvisorUI.currentMember.getAddressLine2());
+                addressStmt.setString(4, AdvisorUI.currentMember.getCity());
+                addressStmt.setString(5, AdvisorUI.currentMember.getCounty());
+                addressStmt.setString(6, AdvisorUI.currentMember.getPostcode());
+                addressStmt.setInt(7, DatabaseAccess.addID);
+                addressStmt.executeUpdate();
+                addressStmt.close();
                 DatabaseAccess.addID += 1;
                 
-                ps = conn.prepareStatement(sqlBilling);
-                ps.setInt(1, AdvisorUI.currentMember.getMemberID());
-                ps.setInt(2, AdvisorUI.currentMember.getCardNumber());
-                ps.setString(3, AdvisorUI.currentMember.getCardName());
-                ps.setInt(4, AdvisorUI.currentMember.getExpiryMonth());
-                ps.setInt(5, AdvisorUI.currentMember.getExpiryYear());
-                ps.setInt(6, AdvisorUI.currentMember.getSecurity());
-                ps.setInt(7, DatabaseAccess.billID);
-                ps.executeUpdate();
+                PreparedStatement billingStmt = conn.prepareStatement(sqlBilling);
+                billingStmt.setInt(1, AdvisorUI.currentMember.getMemberID());
+                billingStmt.setInt(2, AdvisorUI.currentMember.getCardNumber());
+                billingStmt.setString(3, AdvisorUI.currentMember.getCardName());
+                billingStmt.setInt(4, AdvisorUI.currentMember.getExpiryMonth());
+                billingStmt.setInt(5, AdvisorUI.currentMember.getExpiryYear());
+                billingStmt.setInt(6, AdvisorUI.currentMember.getSecurity());
+                billingStmt.setInt(7, DatabaseAccess.billID);
+                billingStmt.executeUpdate();
+                billingStmt.close();
                 DatabaseAccess.billID += 1;
                 
-                ps.close();
                 conn.close();
                 System.out.println("Connection is closed.");  
             }
@@ -299,19 +299,41 @@ public class DBProxyMembership
                 ps.setString(1, firstName);
                 ResultSet rs = null;
 
-                DefaultTableModel model = (DefaultTableModel) AdvisorUI.findID.memberTable.getModel();
+                Vector<Integer> memberIDs = new Vector<Integer>();
+                DefaultTableModel model;
+                model = (DefaultTableModel) AdvisorUI.findID.memberTable.getModel();
 
                 rs = ps.executeQuery();
                 while(rs.next())
-                { 
-                    Vector<String> newRow =  new Vector<String>();
-                    newRow.add(Integer.toString(rs.getInt("MEMBERID")));
-                    newRow.add(rs.getString("FIRSTNAME"));
-                    newRow.add(rs.getString("LASTNAME"));
-                    newRow.add(rs.getString("ADDRESSLINE1"));
-                    newRow.add(rs.getString("POSTCODE"));
-
-                    model.addRow(newRow);
+                {
+                    if(memberIDs.isEmpty())
+                    {
+                        Vector<String> newRow =  new Vector<String>();
+                        newRow.add(Integer.toString(rs.getInt("MEMBERID")));
+                        newRow.add(rs.getString("FIRSTNAME"));
+                        newRow.add(rs.getString("LASTNAME"));
+                        newRow.add(rs.getString("EMAIL"));
+                        newRow.add(rs.getString("DATEOFBIRTH"));
+                        
+                        model.addRow(newRow);
+                        memberIDs.add(rs.getInt("MEMBERID"));
+                    }
+                    else if(memberIDs.contains(rs.getInt("MEMBERID")))
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        Vector<String> newRow =  new Vector<String>();
+                        newRow.add(Integer.toString(rs.getInt("MEMBERID")));
+                        newRow.add(rs.getString("FIRSTNAME"));
+                        newRow.add(rs.getString("LASTNAME"));
+                        newRow.add(rs.getString("EMAIL"));
+                        newRow.add(rs.getString("DATEOFBIRTH"));
+                        
+                        model.addRow(newRow);
+                        memberIDs.add(rs.getInt("MEMBERID"));
+                    }
                 }
 
                 rs.close();

@@ -46,7 +46,7 @@ public class FindID_UI extends javax.swing.JFrame {
 
             },
             new String [] {
-                "MemberID", "First Name", "Last Name", "Address Line 1", "Post Code"
+                "MemberID", "First Name", "Last Name", "Email", "Date of Birth"
             }
         ) {
             Class[] types = new Class [] {

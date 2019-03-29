@@ -8,9 +8,8 @@ public class FindIDController
      */
     public void searchByName(String firstName)
     {
-        String sqlStatement = "SELECT m.memberID, m.firstName, m.lastName, a.addressLine1, a.postcode\n" +
-                        "FROM Member m, Address a\n" +
-                        "LEFT JOIN Member ON (SELECT memberID FROM Member WHERE firstName = ?) = a.memID";
+        System.out.println("YES");
+        String sqlStatement = "SELECT memberid, firstname, lastname, email, dateofbirth FROM MEMBER WHERE firstname = ?";
 
         DBProxyMembership.searchByName(firstName, sqlStatement);
 

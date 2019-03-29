@@ -40,7 +40,7 @@
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="warningLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="214" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="196" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -126,9 +126,6 @@
       </Layout>
       <SubComponents>
         <Component class="javax.swing.JPasswordField" name="passwordEntry">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Password"/>
-          </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
@@ -150,9 +147,6 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="usernameEntry">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Username"/>
-          </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>

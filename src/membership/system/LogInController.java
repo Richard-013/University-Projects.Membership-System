@@ -30,11 +30,7 @@ public class LogInController
     public int logIn(String username, String password)
     {
         // Checks if the username is correct
-        if(!checkUsername(AdvisorUI.login.usernameEntry.getText()))
-        {
-            return 1;
-        }
-        else
+        if(checkUsername(username))
         {
             // Sets up the advisor class
             String sql = "SELECT password FROM LOGIN WHERE username = ?";
@@ -46,6 +42,10 @@ public class LogInController
             {
                 return 2;
             }
+        }
+        else
+        {
+            return 1;
         }
         
         return 0;

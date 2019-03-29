@@ -57,15 +57,11 @@ public class LoginUI extends javax.swing.JFrame {
             }
         });
 
-        passwordEntry.setText("Password");
-
         passwordLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         passwordLabel.setText("Password");
 
         usernameLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         usernameLabel.setText("Username");
-
-        usernameEntry.setText("Username");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -120,7 +116,7 @@ public class LoginUI extends javax.swing.JFrame {
                         .addGap(175, 175, 175))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(warningLabel)
-                        .addGap(214, 214, 214))))
+                        .addGap(196, 196, 196))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -140,6 +136,8 @@ public class LoginUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void logInButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logInButtonActionPerformed
+        username = usernameEntry.getText();
+        password = String.valueOf(passwordEntry.getPassword());
         submitLoginDetails();
     }//GEN-LAST:event_logInButtonActionPerformed
 

@@ -695,9 +695,9 @@ public class NewMemberUI extends javax.swing.JFrame
         String firstName = firstNameEntry.getText();
         String lastName = lastNameEntry.getText();
         String email = emailEntry.getText();
-        String dateOfBirth = dobDayCombo.getSelectedItem().toString() + "/" +
-                dobMonthCombo.getSelectedItem().toString() + "/" +
-                dobYearCombo.getSelectedItem().toString();
+        String dateOfBirth = dobYearCombo.getSelectedItem().toString() + "-" +
+                dobMonthCombo.getSelectedItem().toString() + "-" +
+                dobDayCombo.getSelectedItem().toString();
         int contactNum = Integer.parseInt(contactNumEntry.getText());
         
         int membershipType = 0;
