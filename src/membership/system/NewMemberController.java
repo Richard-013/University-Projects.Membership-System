@@ -2,11 +2,6 @@ package membership.system;
 
 public class NewMemberController
 {
-    public NewMemberController()
-    {
-        // TODO - implement NewMemberController.NewMemberController
-    }
-
     /**
      * 
      * @param firstName

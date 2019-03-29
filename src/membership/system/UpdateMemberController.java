@@ -2,7 +2,6 @@ package membership.system;
 
 public class UpdateMemberController
 {
-
     /**
      *
      * @param memberID
