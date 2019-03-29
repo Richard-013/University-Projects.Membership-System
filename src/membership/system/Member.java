@@ -22,21 +22,6 @@ public class Member
     private int security;
     private boolean discount;
 
-    public Member()
-    {
-            // TODO - implement Member.Member
-    }
-
-    public void newMember()
-    {
-            // TODO - implement Member.updateDetails
-    }
-
-    public void updateDetails()
-    {
-            // TODO - implement Member.updateDetails
-    }
-
     public int getMemberID()
     {
         return memberID;
