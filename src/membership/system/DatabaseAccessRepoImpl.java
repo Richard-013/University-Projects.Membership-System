@@ -2,7 +2,7 @@ package membership.system;
 
 import java.sql.*;
 
-public class DatabaseAccess implements DatabaseAccessRepo
+public class DatabaseAccessRepoImpl implements DatabaseAccessRepo
 {
     private static Connection conn;
     private static final String CONNECTIONURL = "jdbc:derby://localhost:1527/MembershipDB";

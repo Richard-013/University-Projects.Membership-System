@@ -10,7 +10,7 @@ public class DBProxyMembership
     {
         try
         {
-            Connection conn = DatabaseAccess.makeConnection();
+            Connection conn = DatabaseAccessRepoImpl.makeConnection();
             System.out.println("Connecting...");
 
             if(conn != null)
@@ -87,7 +87,7 @@ public class DBProxyMembership
     {
         try
         {
-            Connection conn = DatabaseAccess.makeConnection();
+            Connection conn = DatabaseAccessRepoImpl.makeConnection();
             System.out.println("Connecting...");
 
             if(conn != null)
@@ -100,10 +100,10 @@ public class DBProxyMembership
                 personalStmt.setInt(5, AdvisorUI.currentMember.getMembershipType());
                 personalStmt.setString(6, AdvisorUI.currentMember.getDateOfBirth());
                 personalStmt.setInt(7, AdvisorUI.currentMember.getGender());
-                personalStmt.setInt(8, DatabaseAccess.memID);
+                personalStmt.setInt(8, DatabaseAccessRepoImpl.memID);
                 personalStmt.executeUpdate();
                 personalStmt.close();
-                DatabaseAccess.memID += 1;
+                DatabaseAccessRepoImpl.memID += 1;
                 
                 PreparedStatement ps = conn.prepareStatement(sqlID);
                 ps.setString(1, AdvisorUI.currentMember.getFirstName());
@@ -127,10 +127,10 @@ public class DBProxyMembership
                 addressStmt.setString(4, AdvisorUI.currentMember.getCity());
                 addressStmt.setString(5, AdvisorUI.currentMember.getCounty());
                 addressStmt.setString(6, AdvisorUI.currentMember.getPostcode());
-                addressStmt.setInt(7, DatabaseAccess.addID);
+                addressStmt.setInt(7, DatabaseAccessRepoImpl.addID);
                 addressStmt.executeUpdate();
                 addressStmt.close();
-                DatabaseAccess.addID += 1;
+                DatabaseAccessRepoImpl.addID += 1;
                 
                 PreparedStatement billingStmt = conn.prepareStatement(sqlBilling);
                 billingStmt.setInt(1, AdvisorUI.currentMember.getMemberID());
@@ -139,10 +139,10 @@ public class DBProxyMembership
                 billingStmt.setInt(4, AdvisorUI.currentMember.getExpiryMonth());
                 billingStmt.setInt(5, AdvisorUI.currentMember.getExpiryYear());
                 billingStmt.setInt(6, AdvisorUI.currentMember.getSecurity());
-                billingStmt.setInt(7, DatabaseAccess.billID);
+                billingStmt.setInt(7, DatabaseAccessRepoImpl.billID);
                 billingStmt.executeUpdate();
                 billingStmt.close();
-                DatabaseAccess.billID += 1;
+                DatabaseAccessRepoImpl.billID += 1;
                 
                 conn.close();
                 System.out.println("Connection is closed.");  
@@ -171,7 +171,7 @@ public class DBProxyMembership
     {
         try
         {
-            Connection conn = DatabaseAccess.makeConnection();
+            Connection conn = DatabaseAccessRepoImpl.makeConnection();
             System.out.println("Connecting...");
 
             if(conn != null)
@@ -211,7 +211,7 @@ public class DBProxyMembership
     {
         try
         {
-            Connection conn = DatabaseAccess.makeConnection();
+            Connection conn = DatabaseAccessRepoImpl.makeConnection();
             System.out.println("Connecting...");
 
             if(conn != null)
@@ -290,7 +290,7 @@ public class DBProxyMembership
     {
         try
         {
-            Connection conn = DatabaseAccess.makeConnection();
+            Connection conn = DatabaseAccessRepoImpl.makeConnection();
             System.out.println("Connecting...");
 
             if(conn != null)

@@ -12,7 +12,7 @@ public class DBProxyLogin
     {
 	try
         {
-            Connection conn = DatabaseAccess.makeConnection();
+            Connection conn = DatabaseAccessRepoImpl.makeConnection();
             System.out.println("Connecting...");
 
             if(conn != null)
@@ -60,7 +60,7 @@ public class DBProxyLogin
         
         try
         {
-            Connection conn = DatabaseAccess.makeConnection();
+            Connection conn = DatabaseAccessRepoImpl.makeConnection();
             System.out.println("Connecting...");
 
             if(conn != null)
