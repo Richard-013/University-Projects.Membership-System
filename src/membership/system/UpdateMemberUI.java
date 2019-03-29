@@ -808,24 +808,49 @@ public class UpdateMemberUI extends javax.swing.JFrame {
         {
             // Update values
         }
-        else
-        {
-            // don't update
-        }
     }
 
     private boolean updateCheck()
     {
-	return true;
+        boolean allText = false;
+        boolean allCombo = false;
+        
+        for(javax.swing.JTextField field : textFields)
+        {
+            if(field.getText() == "")
+            {
+                allText = false;
+                break;
+            }
+            else
+            {
+                allText = true;
+            }
+        }
+        
+        for(javax.swing.JComboBox combo : comboBoxes)
+        {
+            if(combo.getSelectedIndex() == 0)
+            {
+                allCombo = false;
+                break;
+            }
+            else
+            {
+                allCombo = true;
+            }
+        }
+        
+        return (allText && allCombo);
     }
 
     private void cancelUpdate()
     {
-        // Clear form data
+        clearDetails();
 	dispose();
     }
 
-    private void resetDetails()
+    private void clearDetails()
     {
 	for(javax.swing.JTextField field : textFields)
         {
@@ -836,6 +861,11 @@ public class UpdateMemberUI extends javax.swing.JFrame {
         {
             combo.setSelectedIndex(0);
         }
+    }
+    
+    private void resetDetails()
+    {
+        retrieveDetails();
     }
 
     private void deleteMembership()

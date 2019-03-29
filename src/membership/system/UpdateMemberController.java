@@ -6,6 +6,50 @@ public class UpdateMemberController
     {
         // TODO - implement UpdateMemberController.UpdateMemberController
     }
+    
+    /**
+     * 
+     * @param firstName
+     * @param lastName
+     * @param email
+     * @param contactNumber
+     * @param membership
+     * @param dateOfBirth
+     * @param gender
+     */
+    public void updatePersonalDetails(String firstName, String lastName,
+            String email, int contactNumber, int membership,
+            String dateOfBirth, int gender)
+    {
+        // TODO - implement UpdateMemberController.updatePersonalDetails
+    }
+
+    /**
+     * 
+     * @param addressLine1
+     * @param addressLine2
+     * @param city
+     * @param county
+     * @param postcode
+     */
+    public void updateAddressDetails(String addressLine1,
+            String addressLine2, String city, String county, String postcode)
+    {
+        // TODO - implement UpdateMemberController.updateAddressDetails
+    }
+
+    /**
+     * 
+     * @param cardName
+     * @param expiryMonth
+     * @param expiryYear
+     * @param security
+     */
+    public void updateBillingDetails(String cardName, int expiryMonth,
+            int expiryYear, int security)
+    {
+        // TODO - implement UpdateMemberController.updateBillingDetails
+    }
 
     /**
      * 
@@ -60,50 +104,6 @@ public class UpdateMemberController
     {
         String sql = "SELECT * FROM BILLINGINFO WHERE memberID = ?";
         return DBProxyMembership.getDetails(3, memberID, sql);
-    }
-
-    /**
-     * 
-     * @param firstName
-     * @param lastName
-     * @param email
-     * @param contactNumber
-     * @param membership
-     * @param dateOfBirth
-     * @param gender
-     */
-    public void updatePersonalDetails(String firstName, String lastName,
-            String email, int contactNumber, int membership,
-            String dateOfBirth, int gender)
-    {
-        // TODO - implement UpdateMemberController.updatePersonalDetails
-    }
-
-    /**
-     * 
-     * @param addressLine1
-     * @param addressLine2
-     * @param city
-     * @param county
-     * @param postcode
-     */
-    public void updateAddressDetails(String addressLine1,
-            String addressLine2, String city, String county, String postcode)
-    {
-        // TODO - implement UpdateMemberController.updateAddressDetails
-    }
-
-    /**
-     * 
-     * @param cardName
-     * @param expiryMonth
-     * @param expiryYear
-     * @param security
-     */
-    public void updateBillingDetails(String cardName, int expiryMonth,
-            int expiryYear, int security)
-    {
-        // TODO - implement UpdateMemberController.updateBillingDetails
     }
 
     /**
