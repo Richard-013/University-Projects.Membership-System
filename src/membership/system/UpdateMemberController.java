@@ -38,10 +38,12 @@ public class UpdateMemberController
         else
         {
             int intMemberID = Integer.parseInt(memberID);
-            updatePersonalDetails(firstName, lastName, email, contactNumber,
-                    membership, dateOfBirth, gender);
-            updateAddressDetails(addressLine1, addressLine2, city, county, postcode);
-            updateBillingDetails(cardNum, cardName, expiryMonth, expiryYear, security);
+            int personalCheck = updatePersonalDetails(memberID, firstName, lastName, email,
+                    contactNumber, membership, dateOfBirth, gender);
+            int addressCheck = updateAddressDetails(memberID, addressLine1, addressLine2,
+                    city, county, postcode);
+            int billingCheck = updateBillingDetails(memberID, cardNum, cardName, expiryMonth,
+                    expiryYear, security);
         }
         
         return 0;
@@ -57,11 +59,19 @@ public class UpdateMemberController
      * @param dateOfBirth
      * @param gender
      */
-    private void updatePersonalDetails(String firstName, String lastName,
+    private int updatePersonalDetails(int memberID, String firstName, String lastName,
             String email, int contactNumber, int membership,
             String dateOfBirth, int gender)
     {
-        // TODO - implement UpdateMemberController.updatePersonalDetails
+        AdvisorUI.currentMember.setFirstName(firstName);
+        AdvisorUI.currentMember.setLastName(lastName);
+        AdvisorUI.currentMember.setEmail(email);
+        AdvisorUI.currentMember.setContactNumber(contactNumber);
+        AdvisorUI.currentMember.setMembershipType(membership);
+        AdvisorUI.currentMember.setDateOfBirth(dateOfBirth);
+        AdvisorUI.currentMember.setGender(gender);
+        String sql = "";
+        return DBProxyMembership.changeDetails(1, memberID, sql);
     }
 
     /**
@@ -72,10 +82,16 @@ public class UpdateMemberController
      * @param county
      * @param postcode
      */
-    private void updateAddressDetails(String addressLine1,
+    private int updateAddressDetails(int memberID, String addressLine1,
             String addressLine2, String city, String county, String postcode)
     {
-        // TODO - implement UpdateMemberController.updateAddressDetails
+        AdvisorUI.currentMember.setAddressLine1(addressLine1);
+        AdvisorUI.currentMember.setAddressLine2(addressLine2);
+        AdvisorUI.currentMember.setCity(city);
+        AdvisorUI.currentMember.setCounty(county);
+        AdvisorUI.currentMember.setPostcode(postcode);
+        String sql = "";
+        return DBProxyMembership.changeDetails(2, memberID, sql);
     }
 
     /**
@@ -85,10 +101,16 @@ public class UpdateMemberController
      * @param expiryYear
      * @param security
      */
-    private void updateBillingDetails(int cardNum, String cardName, int expiryMonth,
+    private int updateBillingDetails(int memberID, int cardNum, String cardName, int expiryMonth,
             int expiryYear, int security)
     {
-        // TODO - implement UpdateMemberController.updateBillingDetails
+        AdvisorUI.currentMember.setCardNumber(cardNum);
+        AdvisorUI.currentMember.setCardName(cardName);
+        AdvisorUI.currentMember.setExpiryMonth(expiryMonth);
+        AdvisorUI.currentMember.setExpiryYear(expiryYear);
+        AdvisorUI.currentMember.setSecurity(security);
+        String sql = "";
+        return DBProxyMembership.changeDetails(3, memberID, sql);
     }
 
     /**

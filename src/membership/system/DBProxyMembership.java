@@ -20,43 +20,46 @@ public class DBProxyMembership
                 ResultSet rs = null;
                 
                 rs = ps.executeQuery();
-                // Member Table
-                if(table == 1)
+                
+                switch (table)
                 {
-                    System.out.println("Member Start");
-                    rs.next();
-                    AdvisorUI.currentMember.setFirstName(rs.getString("FIRSTNAME"));
-                    AdvisorUI.currentMember.setLastName(rs.getString("LASTNAME"));
-                    AdvisorUI.currentMember.setEmail(rs.getString("EMAIL"));
-                    AdvisorUI.currentMember.setContactNumber(rs.getInt("CONTACTNUMBER"));
-                    AdvisorUI.currentMember.setMembershipType(rs.getInt("MEMBERSHIP"));
-                    AdvisorUI.currentMember.setDateOfBirth(rs.getString("DATEOFBIRTH"));
-                    AdvisorUI.currentMember.setGender(rs.getInt("GENDER"));
-                    System.out.println("Member End");
-                }
-                // Address Table
-                else if(table == 2)
-                {
-                    System.out.println("Address Start");
-                    rs.next();
-                    AdvisorUI.currentMember.setAddressLine1(rs.getString("ADDRESSLINE1"));
-                    AdvisorUI.currentMember.setAddressLine2(rs.getString("ADDRESSLINE2"));
-                    AdvisorUI.currentMember.setCity(rs.getString("CITY"));
-                    AdvisorUI.currentMember.setCounty(rs.getString("COUNTY"));
-                    AdvisorUI.currentMember.setPostcode(rs.getString("POSTCODE"));
-                    System.out.println("Address End");
-                }
-                // Billing Table
-                else
-                {
-                    System.out.println("Billing Start");
-                    rs.next();
-                    AdvisorUI.currentMember.setCardName(rs.getString("CARDNAME"));
-                    AdvisorUI.currentMember.setCardNumber(rs.getInt("CARDNUM"));
-                    AdvisorUI.currentMember.setExpiryMonth(rs.getInt("EXPIRYMONTH"));
-                    AdvisorUI.currentMember.setExpiryYear(rs.getInt("EXPIRYYEAR"));
-                    AdvisorUI.currentMember.setSecurity(rs.getInt("SECURITY"));
-                    System.out.println("Billing End");
+                    // Member Table
+                    case 1:
+                        System.out.println("Member Start");
+                        rs.next();
+                        AdvisorUI.currentMember.setFirstName(rs.getString("FIRSTNAME"));
+                        AdvisorUI.currentMember.setLastName(rs.getString("LASTNAME"));
+                        AdvisorUI.currentMember.setEmail(rs.getString("EMAIL"));
+                        AdvisorUI.currentMember.setContactNumber(rs.getInt("CONTACTNUMBER"));
+                        AdvisorUI.currentMember.setMembershipType(rs.getInt("MEMBERSHIP"));
+                        AdvisorUI.currentMember.setDateOfBirth(rs.getString("DATEOFBIRTH"));
+                        AdvisorUI.currentMember.setGender(rs.getInt("GENDER"));
+                        System.out.println("Member End");
+                        break;
+                    // Address Table
+                    case 2:
+                        System.out.println("Address Start");
+                        rs.next();
+                        AdvisorUI.currentMember.setAddressLine1(rs.getString("ADDRESSLINE1"));
+                        AdvisorUI.currentMember.setAddressLine2(rs.getString("ADDRESSLINE2"));
+                        AdvisorUI.currentMember.setCity(rs.getString("CITY"));
+                        AdvisorUI.currentMember.setCounty(rs.getString("COUNTY"));
+                        AdvisorUI.currentMember.setPostcode(rs.getString("POSTCODE"));
+                        System.out.println("Address End");
+                        break;
+                    // Billing Table
+                    case 3:
+                        System.out.println("Billing Start");
+                        rs.next();
+                        AdvisorUI.currentMember.setCardName(rs.getString("CARDNAME"));
+                        AdvisorUI.currentMember.setCardNumber(rs.getInt("CARDNUM"));
+                        AdvisorUI.currentMember.setExpiryMonth(rs.getInt("EXPIRYMONTH"));
+                        AdvisorUI.currentMember.setExpiryYear(rs.getInt("EXPIRYYEAR"));
+                        AdvisorUI.currentMember.setSecurity(rs.getInt("SECURITY"));
+                        System.out.println("Billing End");
+                        break;
+                    default:
+                        System.out.println("Error");
                 }
 
                 rs.close();
@@ -199,16 +202,73 @@ public class DBProxyMembership
 
     /**
      * 
-     * @param member
+     * @param table
+     * @param memberID
+     * @param sql
+     * @return integer
      */
-    public static void changeMemberDetails(int memberID, String sql)
+    public static int changeDetails(int table, int memberID, String sql)
     {
-        // TODO - implement DBProxyMembership.changeMemberDetails
+        try
+        {
+            Connection conn = DatabaseAccess.makeConnection();
+            System.out.println("Connecting...");
+
+            if(conn != null)
+            {
+                PreparedStatement ps = conn.prepareStatement(sql);
+                
+                switch (table)
+                {
+                    // Update Member Table
+                    case 1:
+                        System.out.println("Member Start");
+                        ps.setInt(1, memberID);
+                        ps.executeQuery();
+                        System.out.println("Member End");
+                        break;
+                    // Update Address Table
+                    case 2:
+                        System.out.println("Address Start");
+                        ps.setInt(1, memberID);
+                        ps.executeQuery();
+                        System.out.println("Address End");
+                        break;
+                    // Update Billing Table
+                    case 3:
+                        System.out.println("Billing Start");
+                        ps.setInt(1, memberID);
+                        ps.executeQuery();
+                        System.out.println("Billing End");
+                        break;
+                    default:
+                        System.out.println("Error");
+                }
+                
+                ps.close();
+                conn.close();
+                System.out.println("Connection is closed.");  
+            }
+            else
+            {
+                System.out.println("null");
+                return 1;
+            }
+        }
+        catch(SQLException ex)
+        {             
+            System.out.println("SQLException error");
+            System.out.println(ex.getMessage());
+            return 2;
+        }
+        
+        return 0;
     }
 
     /**
      * 
      * @param firstName
+     * @param sql
      */
     public static void searchByName(String firstName, String sql)
     {
