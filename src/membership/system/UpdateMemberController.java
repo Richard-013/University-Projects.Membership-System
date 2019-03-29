@@ -70,7 +70,10 @@ public class UpdateMemberController
         AdvisorUI.currentMember.setMembershipType(membership);
         AdvisorUI.currentMember.setDateOfBirth(dateOfBirth);
         AdvisorUI.currentMember.setGender(gender);
-        String sql = "";
+        String sql = "UPDATE MEMBER "
+                + "SET firstname = ?, lastname = ?, email = ?, contactnumber = ?, "
+                + "membership = ?, dateofbirth = ?, gender = ? "
+                + "WHERE memberid = ?";
         return DBProxyMembership.changeDetails(1, memberID, sql);
     }
 
@@ -90,7 +93,10 @@ public class UpdateMemberController
         AdvisorUI.currentMember.setCity(city);
         AdvisorUI.currentMember.setCounty(county);
         AdvisorUI.currentMember.setPostcode(postcode);
-        String sql = "";
+        String sql = "UPDATE ADDRESS "
+                + "SET addressline1 = ?, addressline2 = ?, city = ?, county = ?, "
+                + "postcode = ?"
+                + "WHERE memid = ?";
         return DBProxyMembership.changeDetails(2, memberID, sql);
     }
 
@@ -109,7 +115,10 @@ public class UpdateMemberController
         AdvisorUI.currentMember.setExpiryMonth(expiryMonth);
         AdvisorUI.currentMember.setExpiryYear(expiryYear);
         AdvisorUI.currentMember.setSecurity(security);
-        String sql = "";
+        String sql = "UPDATE BILLINGINFO "
+                + "SET cardnum = ?, cardname = ?, security = ?, expirymonth = ?, "
+                + "expiryyear = ? "
+                + "WHERE memberid = ?";
         return DBProxyMembership.changeDetails(3, memberID, sql);
     }
 
