@@ -9,6 +9,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -600,7 +601,24 @@ public class UpdateMemberUI extends javax.swing.JFrame {
     }//GEN-LAST:event_memberIDEntryActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
-        deleteMembership();
+        // Creates a dialog box to verify the deletion operation
+        int input = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this member?");
+        System.out.println(input);
+        switch(input)
+        {
+            case 0:
+                // YES so delete member
+                deleteMembership();
+                break;
+            case 1:
+                // NO so do nothing
+                break;
+            case 2:
+                // CANCEL so do nothing
+                break;
+            default:
+                break;
+        }
     }//GEN-LAST:event_deleteButtonActionPerformed
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
@@ -684,14 +702,17 @@ public class UpdateMemberUI extends javax.swing.JFrame {
     }//GEN-LAST:event_genderComboActionPerformed
 
     private void findIDButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_findIDButtonActionPerformed
+        // Opens the Find ID UI window on button press
         openFindID_UI();
     }//GEN-LAST:event_findIDButtonActionPerformed
 
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
+        // Cancels the record update on button press
         cancelUpdate();
     }//GEN-LAST:event_cancelButtonActionPerformed
 
     private void goButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_goButtonActionPerformed
+        // Retrieves member details on button press
         retrieveDetails();
     }//GEN-LAST:event_goButtonActionPerformed
 
@@ -744,8 +765,10 @@ public class UpdateMemberUI extends javax.swing.JFrame {
 
     private void retrieveDetails()
     {
+        // Switch statement based on result of SQL SELECT query to get the data
         switch(updateCon.getDetails(memberIDEntry.getText()))
         {
+            // If the query succeeds, insert the data into the form
             case 0:
                 warningLabel.setText("Successfully Retrieved Data");
                 firstNameEntry.setText(AdvisorUI.currentMember.getFirstName());
@@ -791,12 +814,15 @@ public class UpdateMemberUI extends javax.swing.JFrame {
                 expiryMonthCombo.setSelectedItem(Integer.toString(AdvisorUI.currentMember.getExpiryMonth()));
                 expiryYearCombo.setSelectedItem(Integer.toString(AdvisorUI.currentMember.getExpiryYear()));
                 break;
+            // If query fails inform the user there was an SQL error
             case 1:
                 warningLabel.setText("SQL Error");
                 break;
+            // If there was a connection error, inform the user
             case 2:
                 warningLabel.setText("Connection Error");
                 break;
+            // Any other result should not occur, but if it does then tell the user
             default:
                 warningLabel.setText("Error retrieving member details");
         }
@@ -804,6 +830,7 @@ public class UpdateMemberUI extends javax.swing.JFrame {
 
     private void submitUpdate()
     {
+        // Checks if all fields contain data
 	if(updateCheck())
         {
             // Get personal details from the form
@@ -870,6 +897,7 @@ public class UpdateMemberUI extends javax.swing.JFrame {
                 addressLine2, city, county, postcode, cardNum, cardName, expiryMonth,
                 expiryYear, security);
                 
+                // Update the on screen details
                 retrieveDetails();
             }
         }
@@ -877,12 +905,13 @@ public class UpdateMemberUI extends javax.swing.JFrame {
 
     private boolean updateCheck()
     {
+        // Loops through each element to check if there is valid data present
         boolean allText = false;
         boolean allCombo = false;
         
         for(javax.swing.JTextField field : textFields)
         {
-            if(field.getText() == "")
+            if(field.getText().equals(""))
             {
                 allText = false;
                 break;
@@ -911,12 +940,14 @@ public class UpdateMemberUI extends javax.swing.JFrame {
 
     private void cancelUpdate()
     {
+        // Clears the details from the form and closes the window
         clearDetails();
 	dispose();
     }
 
     private void clearDetails()
     {
+        // Clears all details from the form
 	for(javax.swing.JTextField field : textFields)
         {
             field.setText("");
@@ -930,11 +961,13 @@ public class UpdateMemberUI extends javax.swing.JFrame {
     
     private void resetDetails()
     {
+        // Resets details to their proper values before any editing
         retrieveDetails();
     }
 
     private void deleteMembership()
     {
+        // Deletes the records of the member
         if(memberID != "")
         {
             switch(updateCon.deleteMembership(Integer.parseInt(memberID)))
@@ -958,6 +991,7 @@ public class UpdateMemberUI extends javax.swing.JFrame {
 
     private void backToMainMenu()
     {
+        // Closes the window
 	dispose();
     }
 
