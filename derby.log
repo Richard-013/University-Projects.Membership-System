@@ -61,3 +61,5 @@ ERROR 08004: Connection authentication failure occurred.  Reason: Invalid authen
 ============= end nested exception, level (1) ===========
 Cleanup action completed
 Fri Mar 29 17:14:40 GMT 2019 Thread[DRDAConnThread_2,5,main] (DATABASE = MembershipDB), (DRDAID = {4}), Connection authentication failure occurred.  Reason: Invalid authentication..
+----------------------------------------------------------------
+Fri Mar 29 18:01:15 GMT 2019: Shutting down Derby engine

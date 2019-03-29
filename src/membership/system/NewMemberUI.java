@@ -9,6 +9,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -686,6 +687,10 @@ public class NewMemberUI extends javax.swing.JFrame
                 default:
                     warningLabel.setText("Error");
             }
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "Please fill in all required fields");
         }
     }
     

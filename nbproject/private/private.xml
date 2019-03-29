@@ -4,17 +4,17 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/H:/Computer%20Science/260CT/Coursework/Membership-System/src/membership/system/Member.java</file>
+            <file>file:/H:/Computer%20Science/260CT/Coursework/Membership-System/src/membership/system/Advisor.java</file>
+            <file>file:/H:/Computer%20Science/260CT/Coursework/Membership-System/src/membership/system/DatabaseAccessRepoImpl.java</file>
             <file>file:/H:/Computer%20Science/260CT/Coursework/Membership-System/src/membership/system/NewMemberController.java</file>
             <file>file:/H:/Computer%20Science/260CT/Coursework/Membership-System/src/membership/system/LogInController.java</file>
-            <file>file:/H:/Computer%20Science/260CT/Coursework/Membership-System/src/membership/system/LoginUI.java</file>
-            <file>file:/H:/Computer%20Science/260CT/Coursework/Membership-System/src/membership/system/MainMenuUI.java</file>
+            <file>file:/H:/Computer%20Science/260CT/Coursework/Membership-System/src/membership/system/DBProxyLogin.java</file>
             <file>file:/H:/Computer%20Science/260CT/Coursework/Membership-System/src/membership/system/UpdateMemberController.java</file>
-            <file>file:/H:/Computer%20Science/260CT/Coursework/Membership-System/src/membership/system/AdvisorUI.java</file>
+            <file>file:/H:/Computer%20Science/260CT/Coursework/Membership-System/src/membership/system/DatabaseAccessRepo.java</file>
             <file>file:/H:/Computer%20Science/260CT/Coursework/Membership-System/src/membership/system/UpdateMemberUI.java</file>
             <file>file:/H:/Computer%20Science/260CT/Coursework/Membership-System/src/membership/system/FindIDController.java</file>
             <file>file:/H:/Computer%20Science/260CT/Coursework/Membership-System/src/membership/system/DBProxyMembership.java</file>
             <file>file:/H:/Computer%20Science/260CT/Coursework/Membership-System/src/membership/system/NewMemberUI.java</file>
-            <file>file:/H:/Computer%20Science/260CT/Coursework/Membership-System/src/membership/system/FindID_UI.java</file>
         </group>
     </open-files>
 </project-private>
