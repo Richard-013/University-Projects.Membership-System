@@ -208,7 +208,7 @@ public class FindID_UI extends javax.swing.JFrame {
         });
     }
     
-    public void getMemberID()
+    private void getMemberID()
     {
         if(memberTable.getSelectedRow() != -1)
         {

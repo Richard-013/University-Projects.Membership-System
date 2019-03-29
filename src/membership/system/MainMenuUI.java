@@ -171,14 +171,14 @@ public class MainMenuUI extends javax.swing.JFrame
     }
     
     // Opens a new window to add a new member
-    public void openNewMemberUI()
+    private void openNewMemberUI()
     {
         AdvisorUI.newMember = new NewMemberUI();
         AdvisorUI.newMember.setVisible(true);
     }
 
     // Opens a new window to update a member's details
-    public void openUpdateMemberUI()
+    private void openUpdateMemberUI()
     {
         AdvisorUI.updateMember = new UpdateMemberUI();
         AdvisorUI.updateMember.setVisible(true);
