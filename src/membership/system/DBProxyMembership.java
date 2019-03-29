@@ -228,10 +228,9 @@ public class DBProxyMembership
                         ps.setString(3, AdvisorUI.currentMember.getEmail());
                         ps.setInt(4, AdvisorUI.currentMember.getContactNumber());
                         ps.setInt(5, AdvisorUI.currentMember.getMembershipType());
-                        ps.setString(6, AdvisorUI.currentMember.getDateOfBirth());
-                        ps.setInt(7, AdvisorUI.currentMember.getGender());
-                        ps.setInt(8, memberID);
-                        ps.executeQuery();
+                        ps.setInt(6, AdvisorUI.currentMember.getGender());
+                        ps.setInt(7, memberID);
+                        ps.executeUpdate();
                         System.out.println("Member End");
                         break;
                     // Update Address Table
@@ -243,7 +242,7 @@ public class DBProxyMembership
                         ps.setString(4, AdvisorUI.currentMember.getCounty());
                         ps.setString(5, AdvisorUI.currentMember.getPostcode());
                         ps.setInt(6, memberID);
-                        ps.executeQuery();
+                        ps.executeUpdate();
                         System.out.println("Address End");
                         break;
                     // Update Billing Table
@@ -255,7 +254,7 @@ public class DBProxyMembership
                         ps.setInt(4, AdvisorUI.currentMember.getExpiryMonth());
                         ps.setInt(5, AdvisorUI.currentMember.getExpiryYear());
                         ps.setInt(6, memberID);
-                        ps.executeQuery();
+                        ps.executeUpdate();
                         System.out.println("Billing End");
                         break;
                     default:

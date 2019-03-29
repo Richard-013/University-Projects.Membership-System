@@ -810,9 +810,6 @@ public class UpdateMemberUI extends javax.swing.JFrame {
             String firstName = firstNameEntry.getText();
             String lastName = lastNameEntry.getText();
             String email = emailEntry.getText();
-            String dateOfBirth = dobDayCombo.getSelectedItem().toString() + "/" +
-                    dobMonthCombo.getSelectedItem().toString() + "/" +
-                    dobYearCombo.getSelectedItem().toString();
             int contactNumber = Integer.parseInt(contactNumEntry.getText());
 
             int membership = 0;
@@ -820,6 +817,9 @@ public class UpdateMemberUI extends javax.swing.JFrame {
             {
                 case "Silver":
                     membership = 1;
+                    break;
+                case "Gold":
+                    membership = 2;
                     break;
                 case "Platinum":
                     membership = 3;
@@ -862,10 +862,16 @@ public class UpdateMemberUI extends javax.swing.JFrame {
             int expiryYear = Integer.parseInt(expiryYearCombo.getSelectedItem().toString());
 
             // Submit updated details to controller
-            updateCon.updateMember(memberID, firstName, lastName,
-                email, contactNumber, membership, dateOfBirth, gender, addressLine1,
+            memberID = memberIDEntry.getText();
+            if(memberID != "")
+            {
+                updateCon.updateMember(memberID, firstName, lastName,
+                email, contactNumber, membership, gender, addressLine1,
                 addressLine2, city, county, postcode, cardNum, cardName, expiryMonth,
                 expiryYear, security);
+                
+                retrieveDetails();
+            }
         }
     }
 

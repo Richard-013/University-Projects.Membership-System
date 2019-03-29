@@ -25,9 +25,8 @@ public class UpdateMemberController
      * @return
      */
     public int updateMember(String memberID, String firstName, String lastName,
-            String email, int contactNumber, int membership,
-            String dateOfBirth, int gender, String addressLine1,
-            String addressLine2, String city, String county, String postcode,
+            String email, int contactNumber, int membership, int gender,
+            String addressLine1, String addressLine2, String city, String county, String postcode,
             int cardNum, String cardName, int expiryMonth, int expiryYear, int security)
     {
         if(AdvisorUI.currentMember == null)
@@ -38,15 +37,26 @@ public class UpdateMemberController
         else
         {
             int intMemberID = Integer.parseInt(memberID);
-            int personalCheck = updatePersonalDetails(memberID, firstName, lastName, email,
-                    contactNumber, membership, dateOfBirth, gender);
-            int addressCheck = updateAddressDetails(memberID, addressLine1, addressLine2,
+            int personalCheck = updatePersonalDetails(intMemberID, firstName, lastName, email,
+                    contactNumber, membership, gender);
+            int addressCheck = updateAddressDetails(intMemberID, addressLine1, addressLine2,
                     city, county, postcode);
-            int billingCheck = updateBillingDetails(memberID, cardNum, cardName, expiryMonth,
+            int billingCheck = updateBillingDetails(intMemberID, cardNum, cardName, expiryMonth,
                     expiryYear, security);
+            if(billingCheck == 0 && addressCheck == 0 && personalCheck == 0)
+            {
+                getDetails(memberID);
+                return 0;
+            }
+            else if(billingCheck == 1 || addressCheck == 1 || personalCheck == 1)
+            {
+                return 1;
+            }
+            else
+            {
+                return 2;
+            }
         }
-        
-        return 0;
     }
     
     /**
@@ -60,19 +70,17 @@ public class UpdateMemberController
      * @param gender
      */
     private int updatePersonalDetails(int memberID, String firstName, String lastName,
-            String email, int contactNumber, int membership,
-            String dateOfBirth, int gender)
+            String email, int contactNumber, int membership, int gender)
     {
         AdvisorUI.currentMember.setFirstName(firstName);
         AdvisorUI.currentMember.setLastName(lastName);
         AdvisorUI.currentMember.setEmail(email);
         AdvisorUI.currentMember.setContactNumber(contactNumber);
         AdvisorUI.currentMember.setMembershipType(membership);
-        AdvisorUI.currentMember.setDateOfBirth(dateOfBirth);
         AdvisorUI.currentMember.setGender(gender);
         String sql = "UPDATE MEMBER "
                 + "SET firstname = ?, lastname = ?, email = ?, contactnumber = ?, "
-                + "membership = ?, dateofbirth = ?, gender = ? "
+                + "membership = ?, gender = ? "
                 + "WHERE memberid = ?";
         return DBProxyMembership.changeDetails(1, memberID, sql);
     }
