@@ -2,9 +2,49 @@ package membership.system;
 
 public class UpdateMemberController
 {
-    public UpdateMemberController()
+
+    /**
+     *
+     * @param memberID
+     * @param firstName
+     * @param lastName
+     * @param email
+     * @param contactNumber
+     * @param membership
+     * @param dateOfBirth
+     * @param gender
+     * @param addressLine1
+     * @param addressLine2
+     * @param city
+     * @param county
+     * @param postcode
+     * @param cardName
+     * @param expiryMonth
+     * @param expiryYear
+     * @param security
+     * @return
+     */
+    public int updateMember(String memberID, String firstName, String lastName,
+            String email, int contactNumber, int membership,
+            String dateOfBirth, int gender, String addressLine1,
+            String addressLine2, String city, String county, String postcode,
+            int cardNum, String cardName, int expiryMonth, int expiryYear, int security)
     {
-        // TODO - implement UpdateMemberController.UpdateMemberController
+        if(AdvisorUI.currentMember == null)
+        {
+            // No member selected
+            return 3;
+        }
+        else
+        {
+            int intMemberID = Integer.parseInt(memberID);
+            updatePersonalDetails(firstName, lastName, email, contactNumber,
+                    membership, dateOfBirth, gender);
+            updateAddressDetails(addressLine1, addressLine2, city, county, postcode);
+            updateBillingDetails(cardNum, cardName, expiryMonth, expiryYear, security);
+        }
+        
+        return 0;
     }
     
     /**
@@ -17,7 +57,7 @@ public class UpdateMemberController
      * @param dateOfBirth
      * @param gender
      */
-    public void updatePersonalDetails(String firstName, String lastName,
+    private void updatePersonalDetails(String firstName, String lastName,
             String email, int contactNumber, int membership,
             String dateOfBirth, int gender)
     {
@@ -32,7 +72,7 @@ public class UpdateMemberController
      * @param county
      * @param postcode
      */
-    public void updateAddressDetails(String addressLine1,
+    private void updateAddressDetails(String addressLine1,
             String addressLine2, String city, String county, String postcode)
     {
         // TODO - implement UpdateMemberController.updateAddressDetails
@@ -45,7 +85,7 @@ public class UpdateMemberController
      * @param expiryYear
      * @param security
      */
-    public void updateBillingDetails(String cardName, int expiryMonth,
+    private void updateBillingDetails(int cardNum, String cardName, int expiryMonth,
             int expiryYear, int security)
     {
         // TODO - implement UpdateMemberController.updateBillingDetails

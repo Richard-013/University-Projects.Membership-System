@@ -806,7 +806,66 @@ public class UpdateMemberUI extends javax.swing.JFrame {
     {
 	if(updateCheck())
         {
-            // Update values
+            // Get personal details from the form
+            String firstName = firstNameEntry.getText();
+            String lastName = lastNameEntry.getText();
+            String email = emailEntry.getText();
+            String dateOfBirth = dobDayCombo.getSelectedItem().toString() + "/" +
+                    dobMonthCombo.getSelectedItem().toString() + "/" +
+                    dobYearCombo.getSelectedItem().toString();
+            int contactNumber = Integer.parseInt(contactNumEntry.getText());
+
+            int membership = 0;
+            switch(membershipCombo.getSelectedItem().toString())
+            {
+                case "Silver":
+                    membership = 1;
+                    break;
+                case "Platinum":
+                    membership = 3;
+                    break;
+                default:
+                    membership = 1;
+            }
+
+            int gender = 0;
+            switch(genderCombo.getSelectedItem().toString())
+            {
+                case "Male":
+                    gender = 1;
+                    break;
+                case "Female":
+                    gender = 2;
+                    break;
+                case "Other":
+                    gender = 3;
+                    break;
+                case "Prefer Not To Say":
+                    gender = 4;
+                    break;
+                default:
+                    gender = 4;
+            }
+
+            // Get address details from the form
+            String addressLine1 = addressLine1Entry.getText();
+            String addressLine2 = addressLine2Entry.getText();
+            String city = cityEntry.getText();
+            String postcode = postCodeEntry.getText();
+            String county = countyEntry.getText();
+
+            // Get billing details from the form
+            int cardNum = Integer.parseInt(cardNumEntry.getText());
+            String cardName = cardNameEntry.getText();
+            int security = Integer.parseInt(securityEntry.getText());
+            int expiryMonth = Integer.parseInt(expiryMonthCombo.getSelectedItem().toString());
+            int expiryYear = Integer.parseInt(expiryYearCombo.getSelectedItem().toString());
+
+            // Submit updated details to controller
+            updateCon.updateMember(memberID, firstName, lastName,
+                email, contactNumber, membership, dateOfBirth, gender, addressLine1,
+                addressLine2, city, county, postcode, cardNum, cardName, expiryMonth,
+                expiryYear, security);
         }
     }
 

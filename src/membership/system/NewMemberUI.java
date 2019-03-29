@@ -752,12 +752,14 @@ public class NewMemberUI extends javax.swing.JFrame
     
     private void submitBillingDetails()
     {
+        // Get billing details from the form
         int cardNum = Integer.parseInt(cardNumEntry.getText());
         String cardName = cardNameEntry.getText();
         int security = Integer.parseInt(securityEntry.getText());
         int expMonth = Integer.parseInt(expiryMonthCombo.getSelectedItem().toString());
         int expYear = Integer.parseInt(expiryYearCombo.getSelectedItem().toString());
         
+        // Submit details to controller
         newCon.addBillingDetails(cardNum, cardName, expMonth, expYear, security);
     }
 
