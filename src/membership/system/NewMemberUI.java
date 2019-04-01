@@ -703,7 +703,24 @@ public class NewMemberUI extends javax.swing.JFrame
         String dateOfBirth = dobYearCombo.getSelectedItem().toString() + "-" +
                 dobMonthCombo.getSelectedItem().toString() + "-" +
                 dobDayCombo.getSelectedItem().toString();
-        int contactNum = Integer.parseInt(contactNumEntry.getText());
+        int contactNum;
+        try
+        {
+            if(contactNumEntry.getText().charAt(0) == '-')
+            {
+                warningLabel.setText("Phone number must be only numeric characters");
+                return;
+            }
+            else
+            {
+                contactNum = Integer.parseInt(contactNumEntry.getText());
+            }
+        }
+        catch(NumberFormatException ex)
+        {
+            warningLabel.setText("Phone number must be only numeric characters");
+            return;
+        }
         
         int membershipType = 0;
         switch(membershipCombo.getSelectedItem().toString())
@@ -758,9 +775,33 @@ public class NewMemberUI extends javax.swing.JFrame
     private void submitBillingDetails()
     {
         // Get billing details from the form
-        int cardNum = Integer.parseInt(cardNumEntry.getText());
         String cardName = cardNameEntry.getText();
-        int security = Integer.parseInt(securityEntry.getText());
+        int cardNum;
+        int security;
+        try
+        {
+            if(cardNumEntry.getText().charAt(0) == '-')
+            {
+                warningLabel.setText("Phone number must be only numeric characters");
+                return;
+            }
+            else if(securityEntry.getText().charAt(0) == '-')
+            {
+                warningLabel.setText("Phone number must be only numeric characters");
+                return;
+            }
+            else
+            {
+                cardNum = Integer.parseInt(cardNumEntry.getText());
+                security = Integer.parseInt(securityEntry.getText());
+            }
+        }
+        catch(NumberFormatException ex)
+        {
+            warningLabel.setText("Phone number must be only numeric characters");
+            return;
+        }
+        
         int expMonth = Integer.parseInt(expiryMonthCombo.getSelectedItem().toString());
         int expYear = Integer.parseInt(expiryYearCombo.getSelectedItem().toString());
         

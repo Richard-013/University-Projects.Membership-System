@@ -837,7 +837,25 @@ public class UpdateMemberUI extends javax.swing.JFrame {
             String firstName = firstNameEntry.getText();
             String lastName = lastNameEntry.getText();
             String email = emailEntry.getText();
-            int contactNumber = Integer.parseInt(contactNumEntry.getText());
+            
+            int contactNum;
+            try
+            {
+                if(contactNumEntry.getText().charAt(0) == '-')
+                {
+                    warningLabel.setText("Phone number must be only numeric characters");
+                    return;
+                }
+                else
+                {
+                    contactNum = Integer.parseInt(contactNumEntry.getText());
+                }
+            }
+            catch(NumberFormatException ex)
+            {
+                warningLabel.setText("Phone number must be only numeric characters");
+                return;
+            }
 
             int membership = 0;
             switch(membershipCombo.getSelectedItem().toString())
@@ -882,20 +900,45 @@ public class UpdateMemberUI extends javax.swing.JFrame {
             String county = countyEntry.getText();
 
             // Get billing details from the form
-            int cardNum = Integer.parseInt(cardNumEntry.getText());
             String cardName = cardNameEntry.getText();
-            int security = Integer.parseInt(securityEntry.getText());
-            int expiryMonth = Integer.parseInt(expiryMonthCombo.getSelectedItem().toString());
-            int expiryYear = Integer.parseInt(expiryYearCombo.getSelectedItem().toString());
+            int cardNum;
+            int security;
+            
+            try
+            {
+                if(cardNumEntry.getText().charAt(0) == '-')
+                {
+                    warningLabel.setText("Phone number must be only numeric characters");
+                    return;
+                }
+                else if(securityEntry.getText().charAt(0) == '-')
+                {
+                    warningLabel.setText("Phone number must be only numeric characters");
+                    return;
+                }
+                else
+                {
+                    cardNum = Integer.parseInt(cardNumEntry.getText());
+                    security = Integer.parseInt(securityEntry.getText());
+                }
+            }
+            catch(NumberFormatException ex)
+            {
+                warningLabel.setText("Phone number must be only numeric characters");
+                return;
+            }
+
+            int expMonth = Integer.parseInt(expiryMonthCombo.getSelectedItem().toString());
+            int expYear = Integer.parseInt(expiryYearCombo.getSelectedItem().toString());
 
             // Submit updated details to controller
             memberID = memberIDEntry.getText();
             if(memberID != "")
             {
                 updateCon.updateMember(memberID, firstName, lastName,
-                email, contactNumber, membership, gender, addressLine1,
-                addressLine2, city, county, postcode, cardNum, cardName, expiryMonth,
-                expiryYear, security);
+                email, contactNum, membership, gender, addressLine1,
+                addressLine2, city, county, postcode, cardNum, cardName, expMonth,
+                expYear, security);
                 
                 // Update the on screen details
                 retrieveDetails();
