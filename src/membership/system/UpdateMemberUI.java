@@ -765,6 +765,9 @@ public class UpdateMemberUI extends javax.swing.JFrame {
 
     private void retrieveDetails()
     {
+        dobDayCombo.setEditable(true);
+        dobMonthCombo.setEditable(true);
+        dobYearCombo.setEditable(true);
         // Switch statement based on result of SQL SELECT query to get the data
         switch(updateCon.getDetails(memberIDEntry.getText()))
         {
@@ -826,6 +829,10 @@ public class UpdateMemberUI extends javax.swing.JFrame {
             default:
                 warningLabel.setText("Error retrieving member details");
         }
+        
+        dobDayCombo.setEditable(false);
+        dobMonthCombo.setEditable(false);
+        dobYearCombo.setEditable(false);
     }
 
     private void submitUpdate()
