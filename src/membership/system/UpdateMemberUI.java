@@ -116,6 +116,7 @@ public class UpdateMemberUI extends javax.swing.JFrame {
         genderCombo = new javax.swing.JComboBox<>();
         currentMembershipLabel = new javax.swing.JLabel();
         currentMembershipDisplayLabel = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         findIDButton = new javax.swing.JButton();
         cancelButton = new javax.swing.JButton();
         warningLabel = new javax.swing.JLabel();
@@ -330,6 +331,8 @@ public class UpdateMemberUI extends javax.swing.JFrame {
 
         currentMembershipDisplayLabel.setText("N/A");
 
+        jLabel1.setText("No. Bookings: 0");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -416,7 +419,8 @@ public class UpdateMemberUI extends javax.swing.JFrame {
                                         .addComponent(currentMembershipLabel)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(currentMembershipDisplayLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel1))
                                     .addComponent(membershipCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -488,7 +492,8 @@ public class UpdateMemberUI extends javax.swing.JFrame {
                 .addGap(2, 2, 2)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(currentMembershipLabel)
-                    .addComponent(currentMembershipDisplayLabel))
+                    .addComponent(currentMembershipDisplayLabel)
+                    .addComponent(jLabel1))
                 .addGap(13, 13, 13)
                 .addComponent(billingInfoLabel)
                 .addGap(18, 18, 18)
@@ -1083,6 +1088,7 @@ public class UpdateMemberUI extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> genderCombo;
     private javax.swing.JLabel genderLabel;
     private javax.swing.JButton goButton;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField lastNameEntry;
     private javax.swing.JLabel lastNameLabel;
